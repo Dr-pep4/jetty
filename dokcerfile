@@ -21,7 +21,7 @@ RUN rm -rf /opt/jetty/etc/jetty.xml
 
 COPY jetty.xml /opt/jetty/etc/jetty.xml
 # Expose the default Jetty port
-EXPOSE 8080
+EXPOSE 8081
 
 # Set the working directory to Jetty's base directory
 WORKDIR ${JETTY_HOME}
