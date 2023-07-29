@@ -5,6 +5,10 @@ FROM centos:7
 ENV JETTY_VERSION=9.4.43.v20210629 \
     JETTY_HOME=/opt/jetty
 
+RUN sed -i 's/mirrorlist=/#mirrorlist=/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo && \
+    sed -i 's/#baseurl=/baseurl=/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo && \
+    sed -i 's/mirror.centos.org/vault.centos.org/g' /etc/yum.repos.d/CentOS-Linux-AppStream.repo
+
 
 RUN yum update -y && \
     yum install -y java-1.8.0-openjdk-headless && \
