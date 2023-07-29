@@ -1,5 +1,5 @@
 
-FROM centos:latest
+FROM centos:7
 
 
 ENV JETTY_VERSION=9.4.43.v20210629 \
