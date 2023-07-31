@@ -20,6 +20,8 @@ COPY sign_up.jsp /opt/jetty/demo-base/webapps/ROOT/sign_up.jsp
 COPY main.jsp /opt/jetty/demo-base/webapps/ROOT/main.jsp
 COPY enroll.jsp /opt/jetty/demo-base/webapps/ROOT/enroll.jsp 
 COPY detail.jsp /opt/jetty/demo-base/webapps/ROOT/detail.jsp
+COPY end_point.txt ${JETTY_HOME)/end_point.txt
+
 
 RUN apt-get update && \
     apt install dpkg && \
@@ -34,5 +36,6 @@ EXPOSE 8080
 
 # Set the working directory to Jetty's base directory
 WORKDIR ${JETTY_HOME}
+ENV ENDPOINT=$(cat ${JETTY_HOME)/end_point.txt)
 # Start Jetty
 CMD ["java", "-jar", "start.jar"]
