@@ -34,7 +34,7 @@ COPY detail.jsp /opt/jetty/demo-base/webapps/ROOT/detail.jsp
 
 RUN apt-get update && \
     apt install dpkg && \
-    curl -SL "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb"
+    curl -SL "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb" && \
     dpkg -i mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
 
 COPY /usr/share/java/mysql-connector-j_8.1.0.jar ${JETTY_HOME}/lib/ext/mysql-connector-j_8.1.0.jar
