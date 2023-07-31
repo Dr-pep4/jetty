@@ -25,6 +25,6 @@ EXPOSE 8081
 
 # Set the working directory to Jetty's base directory
 WORKDIR ${JETTY_HOME}
-cd /opt/jetty/demo-base
+WORKDIR ./demo-base
 # Start Jetty
 CMD ["java", "-jar", "../start.jar"]
