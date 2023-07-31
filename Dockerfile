@@ -14,17 +14,20 @@ RUN apt-get update && \
 RUN mkdir -p ${JETTY_HOME} && \
     curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
 
-RUN rm -rf /opt/jetty/demo-base/webapps/ROOT/index.html
-COPY index.html /opt/jetty/demo-base/webapps/ROOT/index.html
+RUN mkdir /opt/jetty/webapps/ROOT
+COPY login.jsp /opt/jetty/demo-base/webapps/ROOT/login.jsp
+COPY sign_up.jsp /opt/jetty/demo-base/webapps/ROOT/sign_up.jsp
+COPY main.jsp /opt/jetty/demo-base/webapps/ROOT/main.jsp
+COPY enroll.jsp /opt/jetty/demo-base/webapps/ROOT/enroll.jsp 
+COPY detail.jsp /opt/jetty/demo-base/webapps/ROOT/detail.jsp
 
-RUN rm -rf /opt/jetty/etc/jetty.xml
 
-COPY jetty.xml /opt/jetty/etc/jetty.xml
+
+
 # Expose the default Jetty port
-EXPOSE 8081
+EXPOSE 8080
 
 # Set the working directory to Jetty's base directory
 WORKDIR ${JETTY_HOME}
-cd /opt/jetty/demo-base
 # Start Jetty
-CMD ["java", "-jar", "../start.jar"]
+CMD ["java", "-jar", "start.jar"]
