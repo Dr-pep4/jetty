@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 # Set environment variables
 ENV JETTY_VERSION=9.4.43.v20210629 \
     JETTY_HOME=/opt/jetty
-
+    ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
 # Install Java and Jetty
 RUN apt-get update && \
     apt-get install -y openjdk-11-jre-headless curl && \
@@ -14,8 +14,9 @@ RUN apt-get update && \
 RUN mkdir -p ${JETTY_HOME} && \
     curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
 
+
 COPY end_point.txt ${JETTY_HOME)/end_point.txt
-ENV ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
+
 
 RUN mkdir /opt/jetty/webapps/ROOT
 COPY login.jsp /opt/jetty/demo-base/webapps/ROOT/login.jsp
