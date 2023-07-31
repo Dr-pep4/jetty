@@ -36,6 +36,6 @@ EXPOSE 8080
 
 # Set the working directory to Jetty's base directory
 WORKDIR ${JETTY_HOME}
-ENV ENDPOINT=$(cat ${JETTY_HOME)/end_point.txt)
+ENV ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
 # Start Jetty
 CMD ["java", "-jar", "start.jar"]
