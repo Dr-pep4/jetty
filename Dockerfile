@@ -3,8 +3,10 @@ FROM ubuntu:22.04
 
 # Set environment variables
 ENV JETTY_VERSION=9.4.43.v20210629 \
-    JETTY_HOME=/opt/jetty \
-    ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
+    JETTY_HOME=/opt/jetty 
+
+    
+
 # Install Java and Jetty
 RUN apt-get update && \
     apt-get install -y openjdk-11-jre-headless curl && \
@@ -16,7 +18,7 @@ RUN mkdir -p ${JETTY_HOME} && \
 
 
 COPY end_point.txt ${JETTY_HOME)/end_point.txt
-
+RUN ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
 
 RUN mkdir /opt/jetty/webapps/ROOT
 COPY login.jsp /opt/jetty/demo-base/webapps/ROOT/login.jsp
