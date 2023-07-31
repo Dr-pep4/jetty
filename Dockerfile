@@ -3,7 +3,7 @@ FROM ubuntu:22.04
 
 # Set environment variables
 ENV JETTY_VERSION=9.4.43.v20210629 \
-    JETTY_HOME=/opt/jetty
+    JETTY_HOME=/opt/jetty \
     ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
 # Install Java and Jetty
 RUN apt-get update && \
