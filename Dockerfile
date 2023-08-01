@@ -2,8 +2,8 @@
 FROM ubuntu:22.04
 
 # Set environment variables
-ENV JETTY_VERSION=9.4.43.v20210629 \
-    JETTY_HOME=/opt/jetty
+ENV JETTY_VERSION=9.4.43.v20210629
+
 
     
 
@@ -21,11 +21,11 @@ COPY end_point.txt ${JETTY_HOME}/end_point.txt
 RUN ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
 
 RUN mkdir /opt/jetty/webapps/ROOT
-COPY login.jsp /opt/jetty/demo-base/webapps/ROOT/login.jsp
-COPY sign_up.jsp /opt/jetty/demo-base/webapps/ROOT/sign_up.jsp
-COPY main.jsp /opt/jetty/demo-base/webapps/ROOT/main.jsp
-COPY enroll.jsp /opt/jetty/demo-base/webapps/ROOT/enroll.jsp 
-COPY detail.jsp /opt/jetty/demo-base/webapps/ROOT/detail.jsp
+COPY login.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/login.jsp
+COPY sign_up.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/sign_up.jsp
+COPY main.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/main.jsp
+COPY enroll.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/enroll.jsp 
+COPY detail.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/detail.jsp
 
 
 
@@ -38,7 +38,7 @@ RUN curl -SL "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_
     
 RUN dpkg -i /tmp/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
 
-RUN cp /usr/share/java/mysql-connector-j_8.1.0.jar ${JETTY_HOME}/lib/ext/mysql-connector-j_8.1.0.jar
+RUN cp /usr/share/java/mysql-connector-j_8.1.0.jar /home/ubuntu/jetty-distribution/${JETTY_VERSION}/lib/ext/mysql-connector-j_8.1.0.jar
 COPY jdbc-config.xml ${JETTY_HOME}/etc/jdbc-config.xml
 
 # Expose the default Jetty port
