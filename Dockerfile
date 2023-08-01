@@ -13,18 +13,18 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install Jetty
-RUN curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
+RUN curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC /home/ubuntu/jetty-distribution-${JETTY_VERSION} --strip-components=1
 
 
-COPY end_point.txt ${JETTY_HOME}/end_point.txt
-RUN ENDPOINT=$(cat ${JETTY_HOME}/end_point.txt)
+COPY end_point.txt jetty-distribution-${JETTY_VERSION}/end_point.txt
+RUN ENDPOINT=$(cat /home/ubuntu/jetty-distribution-${JETTY_VERSION}/end_point.txt)
 
-RUN mkdir /opt/jetty/webapps/ROOT
-COPY login.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/login.jsp
-COPY sign_up.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/sign_up.jsp
-COPY main.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/main.jsp
-COPY enroll.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/enroll.jsp 
-COPY detail.jsp /home/ubuntu/jetty-distribution/${JETTY_VERSION}/webapps/ROOT/detail.jsp
+RUN mkdir /home/ubuntu/jetty-distribution-${JETTY_VERSION}/webapps/ROOT
+COPY login.jsp /home/ubuntu/jetty-distribution-${JETTY_VERSION}/webapps/ROOT/login.jsp
+COPY sign_up.jsp /home/ubuntu/jetty-distribution-${JETTY_VERSION}/webapps/ROOT/sign_up.jsp
+COPY main.jsp /home/ubuntu/jetty-distribution-${JETTY_VERSION}/webapps/ROOT/main.jsp
+COPY enroll.jsp /home/ubuntu/jetty-distribution-${JETTY_VERSION}/webapps/ROOT/enroll.jsp 
+COPY detail.jsp /home/ubuntu/jetty-distribution-${JETTY_VERSION}/webapps/ROOT/detail.jsp
 
 
 
