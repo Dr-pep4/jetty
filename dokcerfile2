@@ -24,7 +24,8 @@ COPY sign_up.jsp ${JETTY_HOME}/webapps/ROOT/sign_up.jsp
 
 
 RUN apt-get update && \
-    apt install dpkg
+    apt install dpkg && \
+    apt install wget
 WORKDIR ${JETTY_HOME}
 RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.1.0-1ubuntu22.04_all.de
 RUN dpkg -i mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
