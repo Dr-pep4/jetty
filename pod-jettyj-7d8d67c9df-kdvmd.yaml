@@ -1,6 +1,7 @@
 ﻿kind: Pod
 apiVersion: v1
 metadata:
+  schemaVersion: 2.2.0
   generateName: jettyj-7d8d67c9df-
   annotations:
     k8s.ovn.org/pod-networks: >-
