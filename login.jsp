@@ -52,7 +52,7 @@
         <%@ page import="javax.sql.*" %>
 <%
 if (request.getMethod().equals("POST")) {
-  String url = "jdbc:mysql://${ENDPOINT}:3306/schema1";
+String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
 String dbUsername = "admin";
 String dbPassword = "qwer1234";
 Connection conn = null;
