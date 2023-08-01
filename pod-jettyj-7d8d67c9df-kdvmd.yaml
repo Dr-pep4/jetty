@@ -50,7 +50,7 @@ metadata:
             'k:{"uid":"ddb512ce-d0ad-4774-a467-16a4b55f8ec4"}': {}
         'f:spec':
           'f:containers':
-            'k:{"name":"jettyj"}':
+            'k:{"name":"jettyk"}':
               .: {}
               'f:image': {}
               'f:imagePullPolicy': {}
@@ -120,8 +120,8 @@ metadata:
       controller: true
       blockOwnerDeletion: true
   labels:
-    app: jettyj
-    deployment: jettyj
+    app: jettyk
+    deployment: jettyk
     pod-template-hash: 7d8d67c9df
 spec:
   restartPolicy: Always
@@ -141,13 +141,12 @@ spec:
     seccompProfile:
       type: RuntimeDefault
   containers:
-    - name: jettyj
+    - name: jettyk
       image: >-
         image-registry.openshift-image-registry.svc:5000/backend/jettyj@sha256:f9e5ce5974b647a580954d75c57c20c67b7cc6a8a6ab2bef0c17ae30155d6786
       resources: {}
       volumeMounts:
         - name: kube-api-access-rk6md
-          readOnly: true
           mountPath: /var/run/secrets/kubernetes.io/serviceaccount
       terminationMessagePath: /dev/termination-log
       terminationMessagePolicy: File
@@ -157,9 +156,8 @@ spec:
           drop:
             - ALL
         runAsUser: 1000670000
-        runAsNonRoot: true
-        allowPrivilegeEscalation: false
-  serviceAccount: default
+        runAsNonRoot: false
+  serviceAccount: pleaseroot
   volumes:
     - name: kube-api-access-rk6md
       projected:
@@ -222,14 +220,14 @@ status:
     - restartCount: 0
       started: true
       ready: true
-      name: jettyj
+      name: jettyk
       state:
         running:
           startedAt: '2023-08-01T12:34:27Z'
       imageID: >-
-        image-registry.openshift-image-registry.svc:5000/backend/jettyj@sha256:f9e5ce5974b647a580954d75c57c20c67b7cc6a8a6ab2bef0c17ae30155d6786
+        image-registry.openshift-image-registry.svc:5000/backend/jettyk@sha256:f9e5ce5974b647a580954d75c57c20c67b7cc6a8a6ab2bef0c17ae30155d6786
       image: >-
-        image-registry.openshift-image-registry.svc:5000/backend/jettyj@sha256:f9e5ce5974b647a580954d75c57c20c67b7cc6a8a6ab2bef0c17ae30155d6786
+        image-registry.openshift-image-registry.svc:5000/backend/jettyk@sha256:f9e5ce5974b647a580954d75c57c20c67b7cc6a8a6ab2bef0c17ae30155d6786
       lastState: {}
-      containerID: 'cri-o://d2d5f8e71a3cfe9986031084a1c774a4da633fd0be02f5dc24c834af85f94ec4'
+      containerID: 'cri-o://e2d5f8e71a3cfe9986031084a1c774a4da633fd0be02f5dc24c834af85f94ec4'
   qosClass: BestEffort
