@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install Jetty
-RUN mkdir -p ${JETTY_HOME} && \
+RUN mkdir -p ${JETTY_HOME}
     curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
 
 
@@ -33,9 +33,10 @@ COPY detail.jsp /opt/jetty/demo-base/webapps/ROOT/detail.jsp
 
 
 RUN apt-get update && \
-    apt install dpkg && \
-    curl -SL "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb" && \
-    dpkg -i mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
+    apt install dpkg
+RUN curl -SL "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb" -o /tmp/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
+    
+RUN dpkg -i /tmp/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
 
 COPY /usr/share/java/mysql-connector-j_8.1.0.jar ${JETTY_HOME}/lib/ext/mysql-connector-j_8.1.0.jar
 COPY jdbc-config.xml ${JETTY_HOME}/etc/jdbc-config.xml
