@@ -10,6 +10,7 @@ ENV JETTY_VERSION=9.4.43.v20210629
 # Install Java and Jetty
 RUN apt-get update && \
     apt-get install -y openjdk-11-jre-headless curl && \
+    apt install wget
     rm -rf /var/lib/apt/lists/*
 
 # Download and install Jetty
