@@ -13,7 +13,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install Jetty
-RUN mkdir -p ${JETTY_HOME}
 RUN curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
 
 
