@@ -38,13 +38,13 @@ RUN curl -SL "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_
 RUN dpkg -i /tmp/mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
 
 RUN cp /usr/share/java/mysql-connector-j_8.1.0.jar /home/ubuntu/jetty-distribution/${JETTY_VERSION}/lib/ext/mysql-connector-j_8.1.0.jar
-COPY jdbc-config.xml ${JETTY_HOME}/etc/jdbc-config.xml
+COPY jdbc-config.xml /home/ubuntu/jetty-distribution-${JETTY_VERSION}/etc/jdbc-config.xml
 
 # Expose the default Jetty port
 EXPOSE 8080
 
 # Set the working directory to Jetty's base directory
-WORKDIR ${JETTY_HOME}
+WORKDIR /home/ubuntu/jetty-distribution-${JETTY_VERSION}
 
 # Start Jetty
 CMD ["java", "-jar", "start.jar"]
