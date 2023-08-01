@@ -15,10 +15,13 @@ RUN mkdir -p ${JETTY_HOME} && \
     curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
 
 
-RUN mkdir -p ${JETTY_HOME}/ROOT
+RUN mkdir -p ${JETTY_HOME}/webapps/ROOT
 COPY login.jsp /opt/jetty/webapps/ROOT/index.html
+COPY main.jsp ${JETTY_HOME}/webapps/ROOT/main.jsp
+COPY detail.jsp ${JETTY_HOME}/webapps/ROOT/detail.jsp
+COPY enroll.jsp ${JETTY_HOME}/webapps/ROOT/enroll.jsp
+COPY sign_up.jsp ${JETTY_HOME}/webapps/ROOT/sign_up.jsp
 
-RUN rm -rf /opt/jetty/etc/jetty.xml
 
 RUN apt-get update && \
     apt install dpkg
