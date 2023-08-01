@@ -20,9 +20,17 @@ COPY login.jsp /opt/jetty/webapps/ROOT/index.html
 
 RUN rm -rf /opt/jetty/etc/jetty.xml
 
-COPY jetty.xml /opt/jetty/etc/jetty.xml
+RUN apt-get update && \
+    apt install dpkg
+WORKDIR ${JETTY_HOME}
+RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j_8.1.0-1ubuntu22.04_all.de
+RUN dpkg -i mysql-connector-j_8.1.0-1ubuntu22.04_all.deb
+
+RUN cp /usr/share/java/mysql-connector-j_8.1.0.jar ${JETTY_HOME}/lib/ext/mysql-connector-j_8.1.0.jar
+
+
 # Expose the default Jetty port
-EXPOSE 8081
+EXPOSE 8080
 
 # Set the working directory to Jetty's base directory
 WORKDIR ${JETTY_HOME}
