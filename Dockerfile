@@ -19,6 +19,7 @@ RUN mkdir -p ${JETTY_HOME}/webapps/ROOT
 COPY login.jsp /opt/jetty/webapps/ROOT/login.jsp
 COPY main.jsp ${JETTY_HOME}/webapps/ROOT/main.jsp
 COPY admin_main.jsp ${JETTY_HOME}/webapps/ROOT/admin_main.jsp
+COPY admin_login.jsp ${JETTY_HOME}/webapps/ROOT/admin_login.jsp
 COPY detail.jsp ${JETTY_HOME}/webapps/ROOT/detail.jsp
 COPY enroll.jsp ${JETTY_HOME}/webapps/ROOT/enroll.jsp
 COPY sign_up.jsp ${JETTY_HOME}/webapps/ROOT/sign_up.jsp
