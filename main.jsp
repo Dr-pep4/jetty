@@ -140,8 +140,22 @@
                     return conn;
                 }
             %>
-            
-            
+
+            <%
+                Connection conn = null;
+                Statement stmt = null;
+                ResultSet rs = null;
+
+                try {
+                    conn = getConnection();
+                    stmt = conn.createStatement();
+                    String keyword = request.getParameter("keyword");
+                    String sql = "SELECT * FROM table1";
+                    if (keyword != null && !keyword.trim().isEmpty()) {
+                        sql += " WHERE col1 LIKE '%" + keyword + "%' OR col2 LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%'";
+                    }
+                    rs = stmt.executeQuery(sql);
+            %>
             <div id="header_bar">
                 <h1> 중고차 </h1>
                 <button onclick="enroll()"; id="btn_enroll">등록하기</button>
@@ -149,10 +163,8 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <button onclick="alarm()"; id="btn_enroll">추첨하기</button>
-                <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
-                    
-            
+                <button onclick="alarm()"; id="pick">추첨하기</button>
+                <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
@@ -162,7 +174,6 @@
                     <ul class="brand_size">
                         <li><%= rs.getString("col2") %></li>
                         <li><%= rs.getString("col3") %></li>
-                        
                     </ul>
                     <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                 </a>
@@ -189,10 +200,10 @@
             document.forms[0].submit();
         }
         function enroll() {
-            location.href = "/enroll";
+            location.href = "/enroll.jsp";
         }
         function alarm() {
-            alert('추첨 완료');
+            alert("추첨");
         }
     </script>
 </body>
