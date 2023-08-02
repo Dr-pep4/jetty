@@ -163,7 +163,7 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
+                <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
@@ -199,7 +199,7 @@
             document.forms[0].submit();
         }
         function enroll() {
-            location.href = "/enroll";
+            location.href = "/enroll.jsp";
         }
     </script>
 </body>
