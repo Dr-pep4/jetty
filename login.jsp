@@ -45,7 +45,7 @@
     </div>
       <%
     String username = request.getParameter("user_email");
-    String password = request.getParameter("user_pw");
+    String password = request.getParameter("user_passord");
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
@@ -71,7 +71,7 @@ ResultSet rs = null;
       rs = pstmt.executeQuery();
 
       if ( (request.getMethod().equals("POST"))&&rs.next()) {
-      out.println("<script>window.location.href=\"/main\";</script>");
+      out.println("<script>window.location.href=\"/main.jsp\";</script>");
         }else{
          out.println("<script>alert('로그인에 실패했습니다.');</script>");
         }
@@ -95,13 +95,13 @@ ResultSet rs = null;
     var valu = document.getElementById("search_box");
 
     function login(){
-        window.location.href ="/login";
+        window.location.href ="/login.jsp";
     }
     function logout(){
-        window.location.href ="/sign_up";
+        window.location.href ="/sign_up.jsp";
     }
     function success(){
-        window.location.href ="/main";
+        window.location.href ="/main.jsp";
     }
 </script>
 </html>
