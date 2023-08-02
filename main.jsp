@@ -141,58 +141,7 @@
                 }
             %>
             
-            <%
-            String id = request.getParameter("id");
-            if (id != null && !id.isEmpty()) {
-                String dbUsername = "admin";
-                String dbPassword = "qwer1234";
-                Connection conn = null;
-                PreparedStatement pstmt = null;
-        
-                try {
-                    Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection(url, dbUsername, dbPassword);
-        
-                    String updateQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
-                    pstmt = conn.prepareStatement(updateQuery);
-                    pstmt.setString(1, id);
-        
-                    int rowsAffected = pstmt.executeUpdate();
-        
-                    if (rowsAffected > 0) {
-                        out.println("<script>alert('추첨이 완료되었습니다.');</script>");
-                        out.println("<script>window.location.href='/main.jsp';</script>");
-                    } else {
-                        out.println("<script>alert('추첨 실패ㅜㅜ');</script>");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    if (pstmt != null) {
-                        try { pstmt.close(); } catch (SQLException e) { }
-                    }
-                    if (conn != null) {
-                        try { conn.close(); } catch (SQLException e) { }
-                    }
-                }
-            }
-          
-            %>
-            <%
-                Connection conn = null;
-                Statement stmt = null;
-                ResultSet rs = null;
-
-                try {
-                    conn = getConnection();
-                    stmt = conn.createStatement();
-                    String keyword = request.getParameter("keyword");
-                    String sql = "SELECT * FROM table1";
-                    if (keyword != null && !keyword.trim().isEmpty()) {
-                        sql += " WHERE col1 LIKE '%" + keyword + "%' OR col2 LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%'";
-                    }
-                    rs = stmt.executeQuery(sql);
-            %>
+            
             <div id="header_bar">
                 <h1> 중고차 </h1>
                 <button onclick="enroll()"; id="btn_enroll">등록하기</button>
@@ -200,9 +149,7 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <form method="post" action="main.jsp">
-                    <input type="submit" value="추첨하기">
-                </form>
+                <button onclick="alarm()"; id="btn_enroll">추첨하기</button>
                 <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
                     
             
@@ -215,7 +162,7 @@
                     <ul class="brand_size">
                         <li><%= rs.getString("col2") %></li>
                         <li><%= rs.getString("col3") %></li>
-                        <li>신청자수 <%= rs.getString("count") %></li>
+                        
                     </ul>
                     <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                 </a>
@@ -243,6 +190,9 @@
         }
         function enroll() {
             location.href = "/enroll";
+        }
+        function alarm() {
+            alert('추첨 완료');
         }
     </script>
 </body>
