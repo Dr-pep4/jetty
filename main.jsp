@@ -175,7 +175,7 @@
                     }
                 }
             }
-            response.sendRedirect("main.jsp");
+          
             %>
             <%
                 Connection conn = null;
