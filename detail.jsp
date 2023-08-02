@@ -127,7 +127,7 @@ try {
       <p>column5: <%= E %></p>
     </div>
 </div>
-
+<button onclick="success()">뒤로 </button>
 </body>
 <script>
 
