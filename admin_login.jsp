@@ -37,14 +37,14 @@
     <label for="username">아이디:</label>
     <input type="text" id="username" name="user_email" required><br><br>
     <label for="password">비밀번호:</label>
-    <input type="password" id="password" name="user_pw" required><br><br>
+    <input type="password" id="password" name="user_password" required><br><br>
     <input type="submit" value="로그인">
   </form>
   <button onclick="success()">aaa </button>
     </div>
       <%
     String username = request.getParameter("user_email");
-    String password = request.getParameter("user_passord");
+    String password = request.getParameter("user_password");
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
@@ -62,7 +62,7 @@ ResultSet rs = null;
       Class.forName("com.mysql.jdbc.Driver");
       conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-      String query = "SELECT * FROM user WHERE user_email = ? AND user_password = ?";
+      String query = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
       pstmt = conn.prepareStatement(query);
       pstmt.setString(1, username);
       pstmt.setString(2, password);
@@ -70,7 +70,7 @@ ResultSet rs = null;
       rs = pstmt.executeQuery();
 
       if ( (request.getMethod().equals("POST"))&&rs.next()) {
-      out.println("<script>window.location.href=\"/main.jsp\";</script>");
+      out.println("<script>window.location.href=\"/admin_main.jsp\";</script>");
         }else{
          out.println("<script>alert('로그인에 실패했습니다.');</script>");
         }
@@ -100,7 +100,7 @@ ResultSet rs = null;
         window.location.href ="/sign_up.jsp";
     }
     function success(){
-        window.location.href ="/main.jsp";
+        window.location.href ="/admin_main.jsp";
     }
 </script>
 </html>
