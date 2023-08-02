@@ -16,12 +16,13 @@ RUN mkdir -p ${JETTY_HOME} && \
 
 
 RUN mkdir -p ${JETTY_HOME}/webapps/ROOT
-COPY login.jsp /opt/jetty/webapps/ROOT/index.html
+COPY login.jsp /opt/jetty/webapps/ROOT/login.jsp
 COPY main.jsp ${JETTY_HOME}/webapps/ROOT/main.jsp
 COPY detail.jsp ${JETTY_HOME}/webapps/ROOT/detail.jsp
 COPY enroll.jsp ${JETTY_HOME}/webapps/ROOT/enroll.jsp
 COPY sign_up.jsp ${JETTY_HOME}/webapps/ROOT/sign_up.jsp
 COPY jdbc-config.xml  ${JETTY_HOME}/etc/jdbc-config.xml
+COPY index.jsp /opt/jetty/webapps/ROOT/index.jsp
 
 RUN apt-get update && \
     apt install dpkg
