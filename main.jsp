@@ -200,7 +200,7 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <form method="post" action="./">
+                <form method="post" action="main.jsp">
                     <input type="submit" value="추첨하기">
                 </form>
                 <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
