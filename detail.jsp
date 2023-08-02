@@ -129,4 +129,10 @@ try {
 </div>
 
 </body>
+<script>
+
+    function success(){
+        window.location.href ="/main.jsp";
+    }
+</script>
 </html>
