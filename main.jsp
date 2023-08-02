@@ -192,11 +192,11 @@
     </div>
     <script>
         function search() {
-            document.forms[0].action = "main?keyword=" + document.getElementById("search_box").value;
+            document.forms[0].action = "main.jsp?keyword=" + document.getElementById("search_box").value;
             document.forms[0].submit();
         }
         function showAllItems() {
-            document.forms[0].action = "main";
+            document.forms[0].action = "main.jsp";
             document.forms[0].submit();
         }
         function enroll() {
