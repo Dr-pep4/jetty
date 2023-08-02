@@ -11,6 +11,6 @@
   </style>
 </head>
 <body>
-  <h1> 추첨 끝 ㅅㄱ</h1>
+  <h1> done...</h1>
 </body>
 </html>
