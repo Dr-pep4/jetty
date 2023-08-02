@@ -141,43 +141,42 @@
                 }
             %>
             
-<%
-String id = request.getParameter("id");
-if (id != null && !id.isEmpty()) {
-    String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
-    String dbUsername = "admin";
-    String dbPassword = "qwer1234";
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-
-    try {
-        Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection(url, dbUsername, dbPassword);
-
-        String updateQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
-        pstmt = conn.prepareStatement(updateQuery);
-        pstmt.setString(1, id);
-
-        int rowsAffected = pstmt.executeUpdate();
-
-        if (rowsAffected > 0) {
-            out.println("<script>alert('추첨이 완료되었습니다.');</script>");
-        } else {
-            out.println("<script>alert('추첨 실패ㅜㅜ');</script>");
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        if (pstmt != null) {
-            try { pstmt.close(); } catch (SQLException e) { }
-        }
-        if (conn != null) {
-            try { conn.close(); } catch (SQLException e) { }
-        }
-    }
-}
-response.sendRedirect("main");
-%>
+            <%
+            String id = request.getParameter("id");
+            if (id != null && !id.isEmpty()) {
+                String dbUsername = "admin";
+                String dbPassword = "qwer1234";
+                Connection conn = null;
+                PreparedStatement pstmt = null;
+        
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    conn = DriverManager.getConnection(url, dbUsername, dbPassword);
+        
+                    String updateQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
+                    pstmt = conn.prepareStatement(updateQuery);
+                    pstmt.setString(1, id);
+        
+                    int rowsAffected = pstmt.executeUpdate();
+        
+                    if (rowsAffected > 0) {
+                        out.println("<script>alert('추첨이 완료되었습니다.');</script>");
+                    } else {
+                        out.println("<script>alert('추첨 실패ㅜㅜ');</script>");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (pstmt != null) {
+                        try { pstmt.close(); } catch (SQLException e) { }
+                    }
+                    if (conn != null) {
+                        try { conn.close(); } catch (SQLException e) { }
+                    }
+                }
+            }
+            response.sendRedirect("main");
+            %>
             <%
                 Connection conn = null;
                 Statement stmt = null;
@@ -195,6 +194,7 @@ response.sendRedirect("main");
             %>
             <div id="header_bar">
                 <h1> 중고차 </h1>
+                <button onclick="enroll()"; id="btn_enroll">등록하기</button>
             </div>
 
             <div id="all_items">
@@ -239,6 +239,9 @@ response.sendRedirect("main");
         function showAllItems() {
             document.forms[0].action = "main";
             document.forms[0].submit();
+        }
+        function enroll() {
+            location.href = "/enroll";
         }
     </script>
 </body>
