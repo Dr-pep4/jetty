@@ -161,6 +161,7 @@
         
                     if (rowsAffected > 0) {
                         out.println("<script>alert('추첨이 완료되었습니다.');</script>");
+                        out.println("<script>window.location.href='/login.jsp';</script>");
                     } else {
                         out.println("<script>alert('추첨 실패ㅜㅜ');</script>");
                     }
