@@ -77,7 +77,7 @@
             
         }
         .item_box:hover{
-            box-shadow: 0px 0px 20px red;
+            box-shadow: 0px 0px 20px yellow;
         }
         .car_image {
             margin: auto;
