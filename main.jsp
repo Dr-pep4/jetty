@@ -205,6 +205,11 @@
         function alarm() {
             alert("추첨");
         }
+        const button = document.getElementById("pick");
+
+        button.addEventListener("click", function (event) {
+        event.preventDefault(); 
+        });
     </script>
 </body>
 </html>
