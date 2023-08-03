@@ -38,7 +38,7 @@
         }
         #search_result {
             width: 90%;
-            margin: 0 auto;
+            
         }
         li {
             border: 2px solid red;
@@ -65,7 +65,7 @@
         .item_box {
             text-decoration: none;
             border-radius: 10px;
-            
+            padding: 10px;
             width: 270px;
             height:370px;
             margin: 5px auto;
