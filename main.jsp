@@ -43,7 +43,7 @@
             border: 2px solid red;
             list-style: none;
             border-radius: 5px;
-            width: 30%;
+            width: 50%;
             height: 5%;
             margin: 0 auto;
         }
