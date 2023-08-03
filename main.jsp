@@ -112,6 +112,10 @@
             padding: 0;
             
         }
+
+        #pick{
+            width:50%;
+        }
     </style>
 </head>
 <body>
