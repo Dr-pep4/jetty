@@ -10,6 +10,9 @@
         * {
             font-family: 'Noto Sans KR', Arial, sans-serif;
         }
+        header{
+            display: flex;
+        }
         body {
             background-color: aliceblue;
             height: 100%;
@@ -35,7 +38,6 @@
         #search_result {
             border: 1px solid black;
             width: 90%;
-            height: %;
             margin: 0 auto;
         }
         li {
@@ -106,17 +108,20 @@
     </style>
 </head>
 <body>
-    <h1>차량정보</h1>
-    <hr>
-    <div id="wrap">
-        <div id="search_section">
-            <form action="main">
-                <input type="text" id="search_box" name="keyword" style="width: 90%; height: 40px; font-size: 20px; text-align: center;">
-                <input type="button" value="찾기" onclick="search()" style="width: 5%; height: 45px;">
-                <input type="button" value="전체보기" onclick="showAllItems()" style="width: 10%; height: 45px;">
-            </form>
+    <header>
+        <h1>차량정보</h1>
+        <div id="wrap">
+            <div id="search_section">
+                <form action="main">
+                    <input type="text" id="search_box" name="keyword" style="width: 90%; height: 40px; font-size: 20px; text-align: center;">
+                    <input type="button" value="찾기" onclick="search()" style="width: 5%; height: 45px;">
+                    <input type="button" value="전체보기" onclick="showAllItems()" style="width: 10%; height: 45px;">
+                </form>
+            </div>
         </div>
-    </div>
+    </header>
+    <hr>
+    
     <div id="search_result">
         <div>
             <%-- MariaDB 연결 정보 --%>
@@ -165,7 +170,7 @@
             <% while (rs.next()) { %>
                 
                 <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
-                    <button onclick="alarm()"; id="pick">추첨하기</button>
+                    
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
@@ -173,8 +178,8 @@
                         <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
                     <ul class="brand_size">
-                        <li><%= rs.getString("col2") %></li>
-                        <li><%= rs.getString("col3") %></li>
+                        <li>참가자 : <%= rs.getString("count") %> 명</li>
+                        <button onclick="alarm()"; id="pick">추첨하기</button>
                     </ul>
                     <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                 </a>
