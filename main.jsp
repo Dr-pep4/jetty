@@ -120,7 +120,7 @@
         <div id="wrap" style="border:1px solid blue;">
             <div id="search_section" style="border:1px solid green;">
                 <form action="main" style="width : 50%;">
-                    <input type="text" id="search_box" name="keyword" style="width: 90%; height: 40px; font-size: 20px; text-align: center;">
+                    <input type="text" id="search_box" name="keyword" style="width: 80%; height: 40px; font-size: 20px; text-align: center;">
                     <input type="button" value="찾기" onclick="search()" style="width: 10%; height: 45px;">
                     <input type="button" value="전체보기" onclick="showAllItems()" style="width: 10%; height: 45px;">
                 </form>
