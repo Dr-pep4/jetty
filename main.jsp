@@ -15,7 +15,7 @@
             padding: 0px 10px;
         }
         body {
-            background-image: url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+            background-image: url(https://plus.unsplash.com/premium_photo-1670426500311-708bbb8a7432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80);
             height: 100%;
             text-align:center;
             margin: 0 auto;
@@ -182,7 +182,7 @@
                     <div class="car_image">
                         <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
-                    <ul class="brand_size" style="border:1px solid black;">
+                    <ul class="brand_size" style="border:1px solid black; justify-content: space-around;">
                         <li>참가자 : <%= rs.getString("count") %> 명</li>
                         <button onclick="alarm()"; id="pick">추첨하기</button>
                     </ul>
