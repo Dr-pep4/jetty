@@ -55,7 +55,6 @@
 
         #all_items {
             margin: auto;
-            display: flex;
             overflow: scroll;
             height: 1000px;
             width: 95%;
