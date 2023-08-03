@@ -54,6 +54,7 @@
 
 
         #all_items {
+            padding:10px;
             margin: auto;
             overflow: scroll;
             height: 1000px;
