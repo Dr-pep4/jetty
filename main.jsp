@@ -57,7 +57,7 @@ li:hover{
             overflow: scroll;
             height: 1000px;
             width: 95%;
-            flex-wrap: wrap;
+            flex-flow: wrap;
             border: 3px solid red;
             background-color: rgba(255, 255, 255, 0.7);
             margin-bottom: 10px;
