@@ -176,7 +176,9 @@
             <% while (rs.next()) { %>
                 
                 <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
-                    
+                    <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
+                        <%= rs.getString("col1") %>등
+                    </p>
                     <div class="car_image">
                         <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
