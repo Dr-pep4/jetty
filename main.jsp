@@ -39,6 +39,7 @@
         }
         #search_result {
             width: 90%;
+            margin: 0 auto;
             
         }
         li {
@@ -53,7 +54,7 @@
 
 
         #all_items {
-            margin: 0 auto;
+            margin: auto;
             display: flex;
             overflow: scroll;
             height: 1000px;
@@ -111,10 +112,6 @@
         .brand_size {
             padding: 0;
             
-        }
-
-        #pick{
-            width:50%;
         }
     </style>
 </head>
