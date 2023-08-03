@@ -36,18 +36,21 @@
             height: 20%;
         }
         #search_result {
-            border: 1px solid black;
             width: 90%;
             margin: 0 auto;
         }
         li {
             list-style: none;
-            border: 2px solid red;
             border-radius: 5px;
             width: 30%;
             height: 5%;
             margin: 0 auto;
         }
+
+li:hover{
+    border: 2px solid red;
+}
+
         #all_items {
             margin: auto;
             display: flex;
@@ -162,8 +165,7 @@
                     rs = stmt.executeQuery(sql);
             %>
             <div id="header_bar">
-                <h1> 중고차 </h1>
-                <button onclick="enroll()"; id="btn_enroll">등록하기</button>
+                <h1 style="color:#6bbcb6"> 이벤트 경품 리스트</h1>
             </div>
 
             <div id="all_items">
@@ -171,9 +173,6 @@
                 
                 <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
                     
-                    <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
-                        <%= rs.getString("col1") %>
-                    </p>
                     <div class="car_image">
                         <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
@@ -209,6 +208,7 @@
             location.href = "/enroll.jsp";
         }
         function alarm() {
+            event.stopPropagation(); // 버튼 클릭 이벤트가 <a> 태그로 전파되지 않도록 막습니다.
             alert("추첨");
         }
         const button = document.getElementById("pick");
