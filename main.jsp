@@ -40,6 +40,7 @@
             margin: 0 auto;
         }
         li {
+            border: 2px solid red;
             list-style: none;
             border-radius: 5px;
             width: 30%;
@@ -47,9 +48,7 @@
             margin: 0 auto;
         }
 
-li:hover{
-    border: 2px solid red;
-}
+
 
         #all_items {
             margin: auto;
@@ -65,13 +64,16 @@ li:hover{
         .item_box {
             text-decoration: none;
             border-radius: 10px;
-            border: 2px solid Red;
+            
             width: 270px;
             height:370px;
             margin: 5px auto;
             display: block;
             color: black;
-            background-color: pink;
+            
+        }
+        .item_box:hover{
+            border: 2px solid Red;
         }
         .car_image {
             margin: auto;
