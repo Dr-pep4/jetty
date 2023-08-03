@@ -59,6 +59,7 @@
             overflow: scroll;
             height: 1000px;
             width: 95%;
+            display:flex;
             flex-flow: wrap;
             border: 3px solid red;
             background-color: rgba(255, 255, 255, 0.7);
