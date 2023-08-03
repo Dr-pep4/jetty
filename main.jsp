@@ -14,7 +14,7 @@
             display: flex;
         }
         body {
-            background-color: aliceblue;
+            background-color: #ffffff;
             height: 100%;
             text-align:center;
         }
