@@ -15,7 +15,7 @@
             padding: 0px 10px;
         }
         body {
-            background-image: url(https://images.unsplash.com/photo-1498747946579-bde604cb8f44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80);
+            background-image: url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
             height: 100%;
             text-align:center;
             margin: 0 auto;
@@ -119,7 +119,7 @@
         <h1>차량정보</h1>
         <div id="wrap" style="border:1px solid blue;">
             <div id="search_section" style="border:1px solid green;">
-                <form action="main" style="border:1px solid black;">
+                <form action="main" style="width : 50%;">
                     <input type="text" id="search_box" name="keyword" style="width: 90%; height: 40px; font-size: 20px; text-align: center;">
                     <input type="button" value="찾기" onclick="search()" style="width: 10%; height: 45px;">
                     <input type="button" value="전체보기" onclick="showAllItems()" style="width: 10%; height: 45px;">
