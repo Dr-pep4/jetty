@@ -12,6 +12,7 @@
         }
         header{
             display: flex;
+            padding: 0px 10px;
         }
         body {
             background-color: #ffffff;
