@@ -163,8 +163,9 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <button onclick="alarm()"; id="pick">추첨하기</button>
+                
                 <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
+                    <button onclick="alarm()"; id="pick">추첨하기</button>
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
