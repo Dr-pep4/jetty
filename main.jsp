@@ -53,7 +53,7 @@
 
 
         #all_items {
-            margin: auto;
+            margin: 0 auto;
             display: flex;
             overflow: scroll;
             height: 1000px;
@@ -62,6 +62,7 @@
             border: 3px solid red;
             background-color: rgba(255, 255, 255, 0.7);
             margin-bottom: 10px;
+
         }
         .item_box {
             text-decoration: none;
@@ -110,13 +111,13 @@
         .brand_size {
             padding: 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>차량정보</h1>
+        <h1>RECA</h1>
         <div id="wrap" style="border:1px solid blue;">
             <div id="search_section" style="border:1px solid green;">
                 <form action="main" style="width : 50%;">
@@ -169,7 +170,7 @@
                     rs = stmt.executeQuery(sql);
             %>
             <div id="header_bar">
-                <h1 style="color:#6bbcb6"> 이벤트 경품 리스트</h1>
+                <h1> 이벤트 경품 리스트</h1>
             </div>
 
             <div id="all_items">
