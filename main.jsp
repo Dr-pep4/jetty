@@ -180,7 +180,7 @@
                     <div class="car_image">
                         <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
-                    <ul class="brand_size">
+                    <ul class="brand_size" style="border:1px solid black;">
                         <li>참가자 : <%= rs.getString("count") %> 명</li>
                         <button onclick="alarm()"; id="pick">추첨하기</button>
                     </ul>
