@@ -62,6 +62,8 @@ PreparedStatement pstmt1 = null;
 PreparedStatement pstmt2 = null;
 ResultSet rs1 = null;
 ResultSet rs2 = null;
+
+
     try {
       Class.forName("com.mysql.jdbc.Driver");
       conn = DriverManager.getConnection(url, dbUsername, dbPassword);
@@ -95,11 +97,17 @@ ResultSet rs2 = null;
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
-      if (rs != null) {
-        try { rs.close(); } catch (SQLException e) { }
+      if (rs1 != null) {
+        try { rs1.close(); } catch (SQLException e) { }
       }
-      if (pstmt != null) {
-        try { pstmt.close(); } catch (SQLException e) { }
+      if (rs2 != null) {
+        try { rs2.close(); } catch (SQLException e) { }
+      }
+      if (pstmt1 != null) {
+        try { pstmt1.close(); } catch (SQLException e) { }
+      }
+      if (pstmt2 != null) {
+        try { pstmt2.close(); } catch (SQLException e) { }
       }
       if (conn != null) {
         try { conn.close(); } catch (SQLException e) { }
