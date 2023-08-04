@@ -33,7 +33,7 @@
     <h1>로그인 페이지</h1>
     <hr>
     <div id="wrap">
-  <form method="post" action="/admin_login">
+  <form method="post" action="/login">
     <label for="username">아이디:</label>
     <input type="text" id="username" name="user_email" required><br><br>
     <label for="password">비밀번호:</label>
