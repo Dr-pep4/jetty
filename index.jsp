@@ -13,6 +13,9 @@
     }
     h1 {
       margin: 0 auto:
+      witdh:80%;
+      height:80%;
+
     }
   </style>
 </head>
