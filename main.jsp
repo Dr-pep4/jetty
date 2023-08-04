@@ -121,7 +121,7 @@
         <h1 style="margin-right: 10px;">RECA</h1>
         <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
             <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
-                <form action="main" style="width: 50%; display: flex; flex-direction: row; align-items: center;">
+                <form action="main.jsp" style="width: 50%; display: flex; flex-direction: row; align-items: center;">
                     <input type="text" id="search_box" name="keyword" style="width: 80%; height: 40px; font-size: 20px; text-align: center;">
                     <input type="button" value="find" onclick="search()" style="width: 10%; height: 45px;">
                     <input type="button" value="show all" onclick="showAllItems()" style="width: 10%; height: 45px;">
@@ -217,7 +217,7 @@
         }
         function alarm(event, id) {
             event.stopPropagation();
-            
+            alert("추첨");
 
             // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
             var xhr = new XMLHttpRequest();
