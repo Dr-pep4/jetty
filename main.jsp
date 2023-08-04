@@ -121,7 +121,7 @@
         <h1 style="margin-right: 10px;">RECA</h1>
         <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
             <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
-                <form action="main.jsp" style="width: 50%; display: flex; flex-direction: row; align-items: center;">
+                <form action="main.jsp" style="width: 50%; display: flex; flex-direction: row; align-items: justify-content:space-evenly;">
                     <input type="text" id="search_box" name="keyword" style="width: 80%; height: 40px; font-size: 20px; text-align: center;">
                     <input type="button" value="find" onclick="search()" style="width: 10%; height: 45px;">
                     <input type="button" value="All" onclick="showAllItems()" style="width: 10%; height: 45px;">
