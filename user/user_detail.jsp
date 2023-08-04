@@ -107,13 +107,7 @@ try {
 
 <h1>상세 페이지</h1>
 <hr>
-<div id="wrap">
-    <div id="search_section">
-        <input type="text" id="search_box" style="width:90%; height: 40px; font-size: 20px; text-align: center;">
-        <input type="button" value="찾기" onclick="search()" style="width:5%; height: 45px;">
 
-    </div>
-</div>
 <div id="result">
     <div>
             <img src="#">
@@ -132,7 +126,7 @@ try {
 <script>
 
     function success(){
-        window.location.href ="/main.jsp";
+        window.location.href ="/main";
     }
 </script>
 </html>
