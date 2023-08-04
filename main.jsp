@@ -216,31 +216,28 @@
             location.href = "/enroll.jsp";
         }
         function alarm(event, id) {
-        event.stopPropagation();
-        var button = event.target;
-        if (button.disabled) {
-            alert("no more");
-            return;
+    event.stopPropagation();
+    var button = event.target;
+    
+    // AJAX 요청을 보내기 전에 버튼을 비활성화합니다.
+    button.disabled = true;
+
+    // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "updatecount.jsp", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
+            location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
+        } else {
+            // 만약 에러가 발생하면 다시 버튼을 활성화하여 다시 시도할 수 있도록 합니다.
+            button.disabled = false;
+            alert("업데이트 실패! 다시 시도하세요."); // 실패 메시지를 사용자에게 표시해도 좋습니다.
         }
-
-        // AJAX 요청을 보내기 전에 버튼을 비활성화합니다.
-        button.disabled = true;
-
-        // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "updatecount.jsp", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
-                location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
-            } else {
-                // 만약 에러가 발생하면 다시 버튼을 활성화하여 다시 시도할 수 있도록 합니다.
-                button.disabled = false;
-            }
-        };
-        xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
-    }
+    };
+    xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
+}
 
     var buttons = document.querySelectorAll(".pick");
     buttons.forEach(function (button) {
