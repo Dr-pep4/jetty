@@ -58,7 +58,8 @@ String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.co
 String dbUsername = "admin";
 String dbPassword = "qwer1234";
 Connection conn = null;
-PreparedStatement pstmt = null;
+PreparedStatement pstmt1 = null;
+PreparedStatement pstmt2 = null;
 ResultSet rs1 = null;
 ResultSet rs2 = null;
     try {
