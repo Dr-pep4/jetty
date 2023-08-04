@@ -42,17 +42,17 @@
             list-style: none;
             border: 2px solid red;
             border-radius: 5px;
-            width: 30%;
+            width: 90%;
             height: 5%;
             margin: 0 auto;
         }
         #all_items {
             margin: auto;
-            display: flex;
+            
             overflow: scroll;
             height: 1000px;
             width: 95%;
-            flex-wrap: wrap;
+            
             border: 3px solid red;
             background-color: rgba(255, 255, 255, 0.7);
             margin-bottom: 10px;
@@ -69,9 +69,9 @@
             background-color: gray;
         }
         .car_image {
-            margin: auto;
-            width: 80%;
-            height: 200px;
+            left:5px;
+            width: 10%;
+            height: 90%;
             border: 3px solid black;
             margin-bottom: 5px;
         }
