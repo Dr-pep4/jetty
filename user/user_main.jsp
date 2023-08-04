@@ -221,7 +221,7 @@
 
         // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "updatecount.jsp", true);
+        xhr.open("POST", "updatecount", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
