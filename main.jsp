@@ -237,7 +237,6 @@ buttons.forEach(function(button) {
         event.preventDefault();
         // Get the ID of the row associated with this button and pass it to the alarm function.
         var id = this.getAttribute("data-id");
-        alarm(event, id);
     });
 });
     </script>
