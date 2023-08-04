@@ -60,6 +60,7 @@
             height: 1000px;
             width: 95%;
             flex-flow: wrap;
+            display:flex;
             border: 3px solid red;
             background-color: rgba(255, 255, 255, 0.7);
             margin-bottom: 10px;
@@ -77,7 +78,7 @@
             
         }
         .item_box:hover{
-            box-shadow: 0px 0px 20px red;
+            box-shadow: 0px 0px 20px yellow;
         }
         .car_image {
             margin: auto;
@@ -118,8 +119,8 @@
 <body>
     <header style="display: flex; flex-direction: row; align-items: center;">
         <h1 style="margin-right: 10px;">RECA</h1>
-        <div id="wrap" style="border: 1px solid blue; display: flex; flex-direction: row; align-items: center;">
-            <div id="search_section" style="border: 1px solid green; display: flex; flex-direction: row; align-items: center;">
+        <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
+            <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
                 <form action="main" style="width: 50%; display: flex; flex-direction: row; align-items: center;">
                     <input type="text" id="search_box" name="keyword" style="width: 80%; height: 40px; font-size: 20px; text-align: center;">
                     <input type="button" value="find" onclick="search()" style="width: 10%; height: 45px;">
