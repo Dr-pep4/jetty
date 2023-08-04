@@ -176,23 +176,22 @@
             </div>
 
             <div id="all_items">
-            <% while (rs.next()) { %>
-                
-                <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
-                    <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
-                        <%= rs.getString("col1") %>등
-                    </p>
-                    <div class="car_image">
-                        <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
-                    </div>
-                    <ul class="brand_size">
-                        <li>참가자 : <%= rs.getString("count") %> 명</li>
-                        <button onclick="alarm(event)"; id="pick">추첨하기</button>
-                    </ul>
-                    <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
-                </a>
-            <% } %>
-            </div>
+                <% while (rs.next()) { %>
+                    <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
+                        <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
+                            <%= rs.getString("col1") %>등
+                        </p>
+                        <div class="car_image">
+                            <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
+                        </div>
+                        <ul class="brand_size">
+                            <li>참가자 : <%= rs.getString("count") %> 명</li>
+                            <button class="pick" data-id="<%= rs.getString("ID") %>" onclick="alarm(event)">추첨하기</button>
+                        </ul>
+                        <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
+                    </a>
+                <% } %>
+                </div>
             <%
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -222,7 +221,7 @@
 
             // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "updateCount.jsp", true);
+            xhr.open("POST", "updatecount.jsp", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
