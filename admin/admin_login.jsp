@@ -46,6 +46,9 @@
     String username = request.getParameter("user_email");
     String password = request.getParameter("user_password");
     %>
+
+   
+
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
         <%@ page import="javax.sql.*" %>
@@ -56,21 +59,35 @@ String dbUsername = "admin";
 String dbPassword = "qwer1234";
 Connection conn = null;
 PreparedStatement pstmt = null;
-ResultSet rs = null;
-
+ResultSet rs1 = null;
+ResultSet rs2 = null;
     try {
       Class.forName("com.mysql.jdbc.Driver");
       conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-      String query = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
-      pstmt = conn.prepareStatement(query);
-      pstmt.setString(1, username);
-      pstmt.setString(2, password);
+      String query1 = "SELECT * FROM user WHERE user_name = ? AND user_password = ?";
+      pstmt1 = conn.prepareStatement(query1);
+      pstmt1.setString(1, username);
+      pstmt1.setString(2, password);
 
-      rs = pstmt.executeQuery();
+      rs1 = pstmt1.executeQuery();
+
+
+      String query2 = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
+      pstmt2 = conn.prepareStatement(query2);
+      pstmt2.setString(1, username);
+      pstmt2.setString(2, password);
+
+      rs2 = pstmt2.executeQuery();
+
+
+
+
 
       if ( (request.getMethod().equals("POST"))&&rs.next()) {
-      out.println("<script>window.location.href=\"/admin_main.jsp\";</script>");
+      out.println("<script>window.location.href=\"/main\";</script>");
+        }else if( (request.getMethod().equals("POST"))&&rs2.next()){
+      out.println("<script>window.location.href=\"/admin_main\";</script>");
         }else{
          out.println("<script>alert('로그인에 실패했습니다.');</script>");
         }
