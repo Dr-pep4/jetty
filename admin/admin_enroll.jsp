@@ -49,7 +49,7 @@
     <h1>차량 등록</h1>
     <hr>
      <div id="enroll_table">
-        <form action="/enroll.jsp" method="post">
+        <form action="/enroll" method="post">
         <ul class="enroll_row">
             <li>번호판</li>
             <li>
@@ -145,7 +145,7 @@ if (request.getMethod().equals("POST")) {
         pstmt.executeUpdate();
 
         // 등록 성공 시, 성공 페이지로 리다이렉트하거나 성공 메시지를 표시합니다.
-        out.println("<script>window.location.href='/main';</script>");
+        out.println("<script>window.location.href='/admin_main';</script>");
 
        
     }catch (Exception e) {
