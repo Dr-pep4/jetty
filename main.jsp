@@ -186,8 +186,7 @@
                         </div>
                         <ul class="brand_size">
                             <li>참가자 : <%= rs.getString("count") %> 명</li>
-                            <button class="pick" data-id="<%= rs.getString("ID") %>">추첨하기</button>
-
+                            <button class="pick" data-id="<%= rs.getString("ID") %>" onclick="alarm(event)">추첨하기</button>
                         </ul>
                         <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                     </a>
@@ -217,21 +216,34 @@
             location.href = "/enroll.jsp";
         }
         function alarm(event, id) {
-            event.stopPropagation();
-            alert("추첨");
-    
-            // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "updatecount.jsp", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                    // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
-                    location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
-                }
-            };
-            xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
+    event.stopPropagation();
+
+    // 버튼을 여러 번 클릭하는 것을 방지하기 위해 버튼을 비활성화(disable)합니다.
+    var button = event.target;
+    if (button.disabled) {
+        alert("no more"); // 버튼이 비활성화된 상태에서 클릭했을 때 "no more" 메시지를 띄웁니다.
+        return; // 클릭 이벤트를 처리하지 않고 함수를 종료합니다.
+    }
+
+    button.disabled = true;
+    alert("추첨");
+
+    // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "updatecount.jsp", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
+            location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
+        } else {
+            // 만약 에러가 발생하면 다시 버튼을 활성화(enable)하여 다시 시도할 수 있도록 합니다.
+            button.disabled = false;
         }
+    };
+    xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
+}
+
     
         var buttons = document.querySelectorAll(".pick");
         buttons.forEach(function(button) {
