@@ -68,7 +68,7 @@
             background-color: gray;
         }
         .car_image {
-            left:5px;
+            float:left;
             width: 10%;
             height: 90%;
             border: 3px solid black;
