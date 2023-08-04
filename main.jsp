@@ -205,11 +205,11 @@
     </div>
     <script>
         function search() {
-            document.forms[0].action = "main?keyword=" + document.getElementById("search_box").value;
+            document.forms[0].action = "main.jsp?keyword=" + document.getElementById("search_box").value;
             document.forms[0].submit();
         }
         function showAllItems() {
-            document.forms[0].action = "main";
+            document.forms[0].action = "main.jsp";
             document.forms[0].submit();
         }
         function enroll() {
@@ -229,10 +229,17 @@
                 }
             };
             xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
-            location.reload(true);
         }
 
-    
+        var buttons = document.querySelectorAll(".pick");
+buttons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+        // Get the ID of the row associated with this button and pass it to the alarm function.
+        var id = this.getAttribute("data-id");
+        alarm(event, id);
+    });
+});
     </script>
 </body>
 </html>
