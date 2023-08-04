@@ -202,7 +202,7 @@
             document.forms[0].submit();
         }
         function enroll() {
-            location.href = "/enroll.jsp";
+            location.href = "/enroll";
         }
     </script>
 </body>
