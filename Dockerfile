@@ -25,6 +25,10 @@ COPY enroll.jsp ${JETTY_HOME}/webapps/ROOT/enroll.jsp
 COPY sign_up.jsp ${JETTY_HOME}/webapps/ROOT/sign_up.jsp
 COPY jdbc-config.xml  ${JETTY_HOME}/etc/jdbc-config.xml
 COPY index.jsp /opt/jetty/webapps/ROOT/index.jsp
+COPY updatecount.jsp /opt/jetty/webapps/ROOT/updatecount.jsp
+
+
+
 
 RUN apt-get update && \
     apt install dpkg
