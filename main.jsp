@@ -227,26 +227,20 @@
     xhr.open("POST", "updatecount.jsp", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
-            location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
-        } else {
-            // 만약 에러가 발생하면 다시 버튼을 활성화하여 다시 시도할 수 있도록 합니다.
-            button.disabled = false;
-            alert("업데이트 실패! 다시 시도하세요."); // 실패 메시지를 사용자에게 표시해도 좋습니다.
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
+                location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
+            } else {
+                // 실패 메시지를 사용자에게 표시하고 버튼을 다시 활성화합니다.
+                button.disabled = false;
+                alert("업데이트 실패! 다시 시도하세요.");
+            }
         }
     };
     xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
 }
 
-    var buttons = document.querySelectorAll(".pick");
-    buttons.forEach(function (button) {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            var id = this.getAttribute("data-id");
-            alarm(event, id);
-        });
-    });
     </script>
 </body>
 </html>
