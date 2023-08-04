@@ -87,7 +87,7 @@ ResultSet rs2 = null;
 
 
 
-      if ( (request.getMethod().equals("POST"))&&rs.next()) {
+      if ( (request.getMethod().equals("POST"))&&rs1.next()) {
       out.println("<script>window.location.href=\"/main\";</script>");
         }else if( (request.getMethod().equals("POST"))&&rs2.next()){
       out.println("<script>window.location.href=\"/admin_main\";</script>");
