@@ -217,7 +217,7 @@
         }
         function alarm(event, id) {
             event.stopPropagation();
-            alert("추첨");
+            
 
             // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
             var xhr = new XMLHttpRequest();
@@ -229,15 +229,18 @@
                 }
             };
             xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
-            location.reload(true);
+            
         }
 
+        var buttons = document.querySelectorAll(".pick");
         var buttons = document.querySelectorAll(".pick");
 buttons.forEach(function(button) {
     button.addEventListener("click", function(event) {
         event.preventDefault();
         // Get the ID of the row associated with this button and pass it to the alarm function.
         var id = this.getAttribute("data-id");
+        alarm(event, id);
+        location.reload(true);
     });
 });
     </script>
