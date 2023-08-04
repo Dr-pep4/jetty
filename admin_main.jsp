@@ -60,7 +60,7 @@
         .item_box {
             text-decoration: none;
             border: 2px solid Red;
-            width: 90%;
+            width: 98%;
             height:50px;
             margin: 5px auto;
             display: block;
