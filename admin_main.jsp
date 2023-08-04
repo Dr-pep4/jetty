@@ -160,7 +160,7 @@
                     rs = stmt.executeQuery(sql);
             %>
             <div id="header_bar">
-                <h1> 중고차 </h1>
+                <h1> 경품 목록 </h1>
                 <button onclick="enroll()"; id="btn_enroll">등록하기</button>
             </div>
 
@@ -173,11 +173,11 @@
                     <div class="car_image">
                         <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
-                    <ul class="brand_size">
+                    <ul class="brand_size" style="width:">
                         <li><%= rs.getString("col2") %></li>
                         <li><%= rs.getString("col3") %></li>
                     </ul>
-                    <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
+                    <p style="text-align: center; font-weight: bold; width:20%;"><%= rs.getString("col4") %></p>
                 </a>
             <% } %>
             </div>
