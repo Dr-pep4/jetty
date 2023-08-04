@@ -229,6 +229,7 @@
                 }
             };
             xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
+            location.reload(true);
         }
 
         var buttons = document.querySelectorAll(".pick");
