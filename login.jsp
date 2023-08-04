@@ -100,7 +100,7 @@ ResultSet rs = null;
         window.location.href ="/sign_up.jsp";
     }
     function success(){
-        window.location.href ="/main.jsp";
+        window.location.href ="/main";
     }
 </script>
 </html>
