@@ -166,7 +166,7 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" style="display:flex;">
+                <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" style="display:flex;">
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
@@ -194,11 +194,11 @@
     </div>
     <script>
         function search() {
-            document.forms[0].action = "main?keyword=" + document.getElementById("search_box").value;
+            document.forms[0].action = "admin_main?keyword=" + document.getElementById("search_box").value;
             document.forms[0].submit();
         }
         function showAllItems() {
-            document.forms[0].action = "main";
+            document.forms[0].action = "admin_main";
             document.forms[0].submit();
         }
         function enroll() {
