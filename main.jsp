@@ -186,7 +186,8 @@
                         </div>
                         <ul class="brand_size">
                             <li>참가자 : <%= rs.getString("count") %> 명</li>
-                            <button class="pick" data-id="<%= rs.getString("ID") %>" onclick="alarm(event)">추첨하기</button>
+                            <button class="pick" data-id="<%= rs.getString("ID") %>">추첨하기</button>
+
                         </ul>
                         <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                     </a>
