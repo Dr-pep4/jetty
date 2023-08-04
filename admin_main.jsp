@@ -40,7 +40,7 @@
         }
         li {
             list-style: none;
-            border: 2px solid red;
+            border: 2px solid black;
             border-radius: 5px;
             width: 90%;
             height: 5%;
@@ -53,7 +53,7 @@
             height: 1000px;
             width: 95%;
             
-            border: 3px solid red;
+            border: 3px solid black;
             background-color: rgba(255, 255, 255, 0.7);
             margin-bottom: 10px;
         }
