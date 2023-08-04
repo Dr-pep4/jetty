@@ -59,7 +59,6 @@
             overflow: scroll;
             height: 1000px;
             width: 95%;
-            display:flex;
             flex-flow: wrap;
             border: 3px solid red;
             background-color: rgba(255, 255, 255, 0.7);
@@ -119,12 +118,12 @@
 <body>
     <header style="display: flex; flex-direction: row; align-items: center;">
         <h1 style="margin-right: 10px;">RECA</h1>
-        <div id="wrap" style=" display: flex; flex-direction: row; align-items: center;">
-            <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
+        <div id="wrap" style="border: 1px solid blue; display: flex; flex-direction: row; align-items: center;">
+            <div id="search_section" style="border: 1px solid green; display: flex; flex-direction: row; align-items: center;">
                 <form action="main" style="width: 50%; display: flex; flex-direction: row; align-items: center;">
                     <input type="text" id="search_box" name="keyword" style="width: 80%; height: 40px; font-size: 20px; text-align: center;">
-                    <input type="button" value="찾기" onclick="search()" style="width: 10%; height: 45px;">
-                    <input type="button" value="All" onclick="showAllItems()" style="width: 10%; height: 45px;">
+                    <input type="button" value="find" onclick="search()" style="width: 10%; height: 45px;">
+                    <input type="button" value="show all" onclick="showAllItems()" style="width: 10%; height: 45px;">
                 </form>
             </div>
         </div>
@@ -187,7 +186,7 @@
                     </div>
                     <ul class="brand_size">
                         <li>참가자 : <%= rs.getString("count") %> 명</li>
-                        <button style="50%;"onclick="alarm(event)"; id="pick">추첨하기</button>
+                        <button onclick="alarm(event)"; id="pick">추첨하기</button>
                     </ul>
                     <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                 </a>
@@ -216,15 +215,31 @@
         function enroll() {
             location.href = "/enroll.jsp";
         }
-        function alarm(event) {
-            event.stopPropagation(); // 버튼 클릭 이벤트가 <a> 태그로 전파되지 않도록 막습니다.
+        function alarm(event, id) {
+            event.stopPropagation();
             alert("추첨");
-        }
-        const button = document.getElementById("pick");
 
-        button.addEventListener("click", function (event) {
-        event.preventDefault(); 
-        });
+            // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "updateCount.jsp", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
+                }
+            };
+            xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
+        }
+
+        var buttons = document.querySelectorAll(".pick");
+buttons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+        // Get the ID of the row associated with this button and pass it to the alarm function.
+        var id = this.getAttribute("data-id");
+        alarm(event, id);
+    });
+});
     </script>
 </body>
 </html>
