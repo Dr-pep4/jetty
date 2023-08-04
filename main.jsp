@@ -187,7 +187,7 @@
                     </div>
                     <ul class="brand_size">
                         <li>참가자 : <%= rs.getString("count") %> 명</li>
-                        <button style="50%;"onclick="alarm()"; id="pick">추첨하기</button>
+                        <button style="50%;"onclick="alarm(event)"; id="pick">추첨하기</button>
                     </ul>
                     <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                 </a>
@@ -216,7 +216,7 @@
         function enroll() {
             location.href = "/enroll.jsp";
         }
-        function alarm() {
+        function alarm(event) {
             event.stopPropagation(); // 버튼 클릭 이벤트가 <a> 태그로 전파되지 않도록 막습니다.
             alert("추첨");
         }
