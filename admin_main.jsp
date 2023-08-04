@@ -11,7 +11,7 @@
             font-family: 'Noto Sans KR', Arial, sans-serif;
         }
         body {
-            background-image: url(https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80);
+            background-color:white;
             height: 100%;
             text-align:center;
         }
@@ -106,17 +106,21 @@
     </style>
 </head>
 <body>
-    <h1>차량정보</h1>
-    <hr>
-    <div id="wrap">
-        <div id="search_section">
-            <form action="main">
-                <input type="text" id="search_box" name="keyword" style="width: 90%; height: 40px; font-size: 20px; text-align: center;">
-                <input type="button" value="찾기" onclick="search()" style="width: 5%; height: 45px;">
-                <input type="button" value="전체보기" onclick="showAllItems()" style="width: 10%; height: 45px;">
-            </form>
+    <header style="display: flex; flex-direction: row; align-items: center;">
+        <h1 style="margin-right: 10px;">RECA</h1>
+        <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
+            <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
+                <form action="main.jsp" style="width: 50%; display: flex; flex-direction: row; align-items: justify-content:space-evenly;">
+                    <input type="text" id="search_box" name="keyword" style="width: 80%; height: 40px; font-size: 20px; text-align: center;">
+                    <input type="button" value="find" onclick="search()" style="width: 10%; height: 45px;">
+                    <input type="button" value="All" onclick="showAllItems()" style="width: 10%; height: 45px;">
+                </form>
+            </div>
         </div>
-    </div>
+    </header>
+    
+    <hr>
+    
     <div id="search_result">
         <div>
             <%-- MariaDB 연결 정보 --%>
