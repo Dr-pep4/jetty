@@ -62,11 +62,11 @@
             border-radius: 10px;
             border: 2px solid Red;
             width: 270px;
-            height:370px;
+            height:50px;
             margin: 5px auto;
             display: block;
             color: black;
-            background-color: pink;
+            background-color: gray;
         }
         .car_image {
             margin: auto;
@@ -167,7 +167,7 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
+                <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" style="display:flex;">
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
