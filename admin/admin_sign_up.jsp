@@ -37,7 +37,7 @@
     <h1>회원가입</h1>
     <hr>
     <div id="wrap">
-  <form method="post" action="/sign_up">
+  <form method="post" action="sign_up">
     <label for="user_email">email:</label>
     <input type="text" id="first_email" name="first_email" required>@<input type="text" id="last_email" name="last_email" required><br><br>
     <label for="password">password:</label>
