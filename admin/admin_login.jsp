@@ -120,13 +120,13 @@ ResultSet rs2 = null;
     var valu = document.getElementById("search_box");
 
     function login(){
-        window.location.href ="/login.jsp";
+        window.location.href ="/login";
     }
     function logout(){
-        window.location.href ="/sign_up.jsp";
+        window.location.href ="/sign_up";
     }
     function success(){
-        window.location.href ="/admin_main.jsp";
+        window.location.href ="/admin_main";
     }
 </script>
 </html>
