@@ -99,7 +99,7 @@ ResultSet rs = null;
                 pstmt.executeUpdate();
 
                 // Registration successful, redirect to a success page or login page
-                out.println("<script>window.location.href='/main';</script>");
+                out.println("<script>window.location.href='/login';</script>");
             }
 
     } catch (Exception e) {
