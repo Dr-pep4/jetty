@@ -177,7 +177,7 @@
 
             <div id="all_items">
                 <% while (rs.next()) { %>
-                    <a class="item_box" href="/detail.jsp?id=<%= rs.getString("ID") %>" >
+                    <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
                         <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                             <%= rs.getString("col1") %>등
                         </p>
@@ -205,15 +205,15 @@
     </div>
     <script>
         function search() {
-            document.forms[0].action = "main.jsp?keyword=" + document.getElementById("search_box").value;
+            document.forms[0].action = "main?keyword=" + document.getElementById("search_box").value;
             document.forms[0].submit();
         }
         function showAllItems() {
-            document.forms[0].action = "main.jsp";
+            document.forms[0].action = "main";
             document.forms[0].submit();
         }
         function enroll() {
-            location.href = "/enroll.jsp";
+            location.href = "/enroll";
         }
         function alarm(event, id) {
         event.stopPropagation();
