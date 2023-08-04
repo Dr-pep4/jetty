@@ -186,7 +186,7 @@
                         </div>
                         <ul class="brand_size">
                             <li>참가자 : <%= rs.getString("count") %> 명</li>
-                            <button class="pick" data-id="<%= rs.getString("ID") %>" onclick="alarm(event)">추첨하기</button>
+                            <button class="pick" data-id="<%= rs.getString("ID") %>추첨하기</button>
                         </ul>
                         <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
                     </a>
@@ -216,30 +216,31 @@
             location.href = "/enroll.jsp";
         }
         function alarm(event, id) {
-    event.stopPropagation();
-    var button = event.target;
-    
-    // AJAX 요청을 보내기 전에 버튼을 비활성화합니다.
-    button.disabled = true;
+        event.stopPropagation();
+        alert("추첨");
 
-    // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "updatecount.jsp", true);
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
+        // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "updatecount.jsp", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                 // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
                 location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
-            } else {
-                // 실패 메시지를 사용자에게 표시하고 버튼을 다시 활성화합니다.
-                button.disabled = false;
-                alert("업데이트 실패! 다시 시도하세요.");
             }
-        }
-    };
-    xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
-}
+        };
+        xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
+    }
+
+    var buttons = document.querySelectorAll(".pick");
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            // Get the ID of the row associated with this button and pass it to the alarm function.
+            var id = this.getAttribute("data-id");
+            alarm(event, id);
+        });
+    });
 
     </script>
 </body>
