@@ -14,14 +14,16 @@ RUN apt-get update && \
 RUN mkdir -p ${JETTY_HOME} && \
     curl -SL "https://repo1.maven.org/maven2/org/eclipse/jetty/jetty-distribution/${JETTY_VERSION}/jetty-distribution-${JETTY_VERSION}.tar.gz" | tar -xzC ${JETTY_HOME} --strip-components=1
 
+#application contents
 
 RUN mkdir -p ${JETTY_HOME}/webapps/ROOT
-COPY login.jsp /opt/jetty/webapps/ROOT/login.jsp
 COPY admin_main.jsp ${JETTY_HOME}/webapps/ROOT/admin_main.jsp
 COPY admin_login.jsp ${JETTY_HOME}/webapps/ROOT/admin_login.jsp
-COPY detail.jsp ${JETTY_HOME}/webapps/ROOT/detail.jsp
-COPY enroll.jsp ${JETTY_HOME}/webapps/ROOT/enroll.jsp
-COPY sign_up.jsp ${JETTY_HOME}/webapps/ROOT/sign_up.jsp
+COPY admin_detail.jsp ${JETTY_HOME}/webapps/ROOT/admin_detail.jsp
+COPY admin_enroll.jsp ${JETTY_HOME}/webapps/ROOT/admin_enroll.jsp
+COPY admin_sign_up.jsp ${JETTY_HOME}/webapps/ROOT/admin_sign_up.jsp
+
+#configure file
 COPY jdbc-config.xml  ${JETTY_HOME}/etc/jdbc-config.xml
 COPY index.jsp /opt/jetty/webapps/ROOT/index.jsp
 COPY updatecount.jsp /opt/jetty/webapps/ROOT/updatecount.jsp
