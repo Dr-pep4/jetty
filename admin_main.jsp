@@ -59,9 +59,8 @@
         }
         .item_box {
             text-decoration: none;
-            border-radius: 10px;
             border: 2px solid Red;
-            width: 270px;
+            width: 90%;
             height:50px;
             margin: 5px auto;
             display: block;
