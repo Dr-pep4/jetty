@@ -56,15 +56,20 @@
   <button onclick="success()">aaa </button>
     </div>
     <%
-    String first_email = request.getParameter("first_email");
-    String last_email = request.getParameter("last_email");
+    
+
+
     String user_id = request.getParameter("user_id");
-    String user_email = first_email+"@"+last_email;
+    String user_password = request.getParameter("user_password");
+    
     String user_name = request.getParameter("user_name");
     String user_address = request.getParameter("user_address");
 
+    String first_email = request.getParameter("first_email");
+    String last_email = request.getParameter("last_email");
+    String user_email = first_email+"@"+last_email;
 
-    String user_password = request.getParameter("user_password");
+   
 
 
     String first_phone = request.getParameter("first_phone");
@@ -100,13 +105,14 @@ ResultSet rs = null;
                 out.println("<script>alert('이미가입한 이메일....ㅠㅠ.');</script>");
             } else {
                 // Insert new user record
-                String insertQuery = "INSERT INTO user (user_email, user_password, user_phone, user_name, user_address) VALUES (?, ?, ?, ?, ?)";
+                String insertQuery = "INSERT INTO user (user_email, user_password, user_phone, user_name, user_address, user_id) VALUES (?, ?, ?, ?, ?, ?)";
                 pstmt = conn.prepareStatement(insertQuery);
                 pstmt.setString(1, user_email);
                 pstmt.setString(2, user_password);
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
+                pstmt.setString(6, user_id);
 
                 pstmt.executeUpdate();
 out.println("<script>alert('가입완료 로그인ㄱ');</script>");
