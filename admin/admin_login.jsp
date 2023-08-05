@@ -126,7 +126,7 @@ ResultSet rs2 = null;
         window.location.href ="/sign_up";
     }
     function success(){
-        window.location.href ="/admin_main";
+        window.location.href ="/main";
     }
 </script>
 </html>
