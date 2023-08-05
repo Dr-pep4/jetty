@@ -182,7 +182,7 @@
                             <%= rs.getString("col1") %>등
                         </p>
                         <div class="car_image">
-                            <img src="#" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
+                            <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                         </div>
                         <ul class="brand_size">
                             <li>참가자 : <%= rs.getString("count") %> 명</li>
