@@ -91,6 +91,7 @@ ResultSet rs = null;
                 out.println("<script>alert('이미가입한 이메일....ㅠㅠ.');</script>");
             } else {
                 // Insert new user record
+                out.println("<script>alert('여기까지는 나오나?...ㅠㅠ.');</script>");
                 String insertQuery = "INSERT INTO user (user_email, user_password, user_phone) VALUES (?, ?, ?)";
                 pstmt = conn.prepareStatement(insertQuery);
                 pstmt.setString(1, user_email);
