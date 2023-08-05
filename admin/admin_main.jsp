@@ -178,6 +178,7 @@
                         <li><%= rs.getString("col3") %></li>
                     </ul>
                     <p style="text-align: center; font-weight: bold; width:20%;"><%= rs.getString("col4") %></p>
+                    <button data-id="<%= rs.getString("ID") %>" onclick="deleteItem(this)">삭제하기</button>
                 </a>
             <% } %>
             </div>
@@ -204,6 +205,32 @@
         function enroll() {
             location.href = "/enroll";
         }
+        function deleteItem(button) {
+        var itemId = button.getAttribute("data-id");
+        
+        // AJAX 호출을 통해 서버에 삭제 요청을 보냄
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/delete", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    // 요청이 성공적으로 처리됨
+                    var response = xhr.responseText;
+                    if (response === "success") {
+                        // 데이터 삭제 성공 시 페이지 새로고침
+                        location.reload();
+                    } else {
+                        alert("데이터 삭제 중 오류가 발생했습니다.");
+                    }
+                } else {
+                    // 요청에 문제가 발생함
+                    alert("데이터 삭제 요청에 문제가 발생했습니다.");
+                }
+            }
+        };
+        xhr.send("id=" + itemId); // 삭제할 아이템의 ID를 서버에 전달
+    }
     </script>
 </body>
 </html>
