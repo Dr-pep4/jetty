@@ -88,6 +88,7 @@ try {
      C = rs.getString("col3");    // 변수 값 할당
      D = rs.getString("col4");
      E = rs.getString("col5");
+     F = rs.getString("image_url");
      // Retrieve other column values as needed
 
      // Use the fetched data as required
@@ -112,7 +113,7 @@ try {
 
 <div id="result">
     <div>
-            <img src="<%= rs.getString("image_url") %>">
+            <img src="<%= F %>">
     </div>
     <div>
       <h1>Car Details</h1>
