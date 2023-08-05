@@ -91,13 +91,17 @@ ResultSet rs = null;
                 out.println("<script>alert('이미가입한 이메일....ㅠㅠ.');</script>");
             } else {
                 // Insert new user record
-                out.println("<script>alert('여기까지는 나오나?...ㅠㅠ.');</script>");
+                out.println("<script>alert('1');</script>");
                 String insertQuery = "INSERT INTO user (user_email, user_password, user_phone) VALUES (?, ?, ?)";
+out.println("<script>alert('2');</script>");
                 pstmt = conn.prepareStatement(insertQuery);
+out.println("<script>alert('3');</script>");
                 pstmt.setString(1, user_email);
                 pstmt.setString(2, user_password);
                 pstmt.setString(3, user_phone);
+out.println("<script>alert('4');</script>");
                 pstmt.executeUpdate();
+out.println("<script>alert('5');</script>");
 
                 // Registration successful, redirect to a success page or login page
                 out.println("<script>window.location.href='/login';</script>");
