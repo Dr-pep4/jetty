@@ -108,6 +108,7 @@ out.println("<script>alert('5');</script>");
             }
 
     } catch (Exception e) {
+out.println("<script>alert('예외 발생: " + e.getMessage() + "');</script>");
       e.printStackTrace();
     } finally {
       if (rs != null) {
