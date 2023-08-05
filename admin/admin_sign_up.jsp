@@ -38,10 +38,12 @@
     <hr>
     <div id="wrap">
   <form method="post" action="/sign_up">
-    <label for="user_email">email:</label>
-    <input type="text" id="first_email" name="first_email" required>@<input type="text" id="last_email" name="last_email" required><br><br>
+    <label for="text">ID :</label>
+    <input type="text" id="user_id" name="user_id" required><br><br>
     <label for="password">password:</label>
     <input type="password" id="user_password" name="user_password" required><br><br>
+    <label for="user_email">email:</label>
+    <input type="text" id="first_email" name="first_email" required>@<input type="text" id="last_email" name="last_email" required><br><br>
     <label for="text">name:</label>
     <input type="text" id="user_name" name="user_name" required><br><br>
     <label for="text">address:</label>
@@ -56,6 +58,7 @@
     <%
     String first_email = request.getParameter("first_email");
     String last_email = request.getParameter("last_email");
+    String user_id = request.getParameter("user_id");
     String user_email = first_email+"@"+last_email;
     String user_name = request.getParameter("user_name");
     String user_address = request.getParameter("user_address");
