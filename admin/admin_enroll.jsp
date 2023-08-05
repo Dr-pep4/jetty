@@ -164,7 +164,7 @@ if (request.getMethod().equals("POST")) {
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-        String insertQuery = "INSERT INTO table1 (col1, col2, col3, col4, col5) VALUES (?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO table1 (col1, col2, col3, col4, col5,  image_url) VALUES (?, ?, ?, ?, ?, ?)";
         pstmt = conn.prepareStatement(insertQuery);
 
         // 파라미터에 값 할당
@@ -173,6 +173,7 @@ if (request.getMethod().equals("POST")) {
         pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
+        pstmt.setString(6, imageUrl);
         pstmt.executeUpdate();
 
         // 등록 성공 시, 성공 페이지로 리다이렉트하거나 성공 메시지를 표시합니다.
