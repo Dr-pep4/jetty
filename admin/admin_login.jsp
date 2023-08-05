@@ -68,7 +68,7 @@ ResultSet rs2 = null;
       Class.forName("com.mysql.jdbc.Driver");
       conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-      String query1 = "SELECT * FROM user WHERE user_name = ? AND user_password = ?";
+      String query1 = "SELECT * FROM user WHERE user_email = ? AND user_password = ?";
       pstmt1 = conn.prepareStatement(query1);
       pstmt1.setString(1, username);
       pstmt1.setString(2, password);
