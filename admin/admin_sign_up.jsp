@@ -41,7 +41,7 @@
     <label for="user_email">email:</label>
     <input type="text" id="first_email" name="first_email" required>@<input type="text" id="last_email" name="last_email" required><br><br>
     <label for="password">password:</label>
-    <input type="password" id="password" name="user_password" required><br><br>
+    <input type="password" id="user_password" name="user_password" required><br><br>
      <label for="password">phone:</label>
       <input type="text" value="010" readonly id="first_phone" name="first_phone" required>- <input type="text" id="mid_phone" name="mid_phone" required>- <input type="text" id="last_phone" name="last_phone" required><br><br>
     <input type="submit" value="회원가입">
