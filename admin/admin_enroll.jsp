@@ -128,7 +128,7 @@
     InputStream imageStream = imagePart.getInputStream();
 
     // Amazon S3 설정
-    String bucketName = "your-s3-bucket-name";
+    String bucketName = "recaimagebucket";
     String key = "images/" + UUID.randomUUID().toString();
 
     // S3에 이미지 업로드
