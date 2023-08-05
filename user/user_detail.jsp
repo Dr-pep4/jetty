@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="com.amazonaws.services.s3.AmazonS3" %>
-<%@ page import="com.amazonaws.services.s3.AmazonS3ClientBuilder" %>
-<%@ page import="com.amazonaws.services.s3.model.ObjectMetadata" %>
-<%@ page import="com.amazonaws.services.s3.model.PutObjectRequest" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
