@@ -110,7 +110,7 @@ try {
 
 <div id="result">
     <div>
-            <img src="#">
+            <img src="<%= rs.getString("image_url") %>">
     </div>
     <div>
       <h1>Car Details</h1>
