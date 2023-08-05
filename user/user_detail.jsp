@@ -74,6 +74,7 @@ String B = null;   // 변수 선언 위치 변경
 String C = null;
 String D = null;
 String E = null;
+String F = null;
 
 try {
   conn = getConnection();
