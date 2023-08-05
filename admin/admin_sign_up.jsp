@@ -57,6 +57,8 @@
     String first_email = request.getParameter("first_email");
     String last_email = request.getParameter("last_email");
     String user_email = first_email+"@"+last_email;
+    String user_name = request.getParameter("user_name");
+    String user_address = request.getParameter("user_address");
 
 
     String user_password = request.getParameter("user_password");
@@ -95,17 +97,16 @@ ResultSet rs = null;
                 out.println("<script>alert('이미가입한 이메일....ㅠㅠ.');</script>");
             } else {
                 // Insert new user record
-                out.println("<script>alert('1');</script>");
-                String insertQuery = "INSERT INTO user (user_email, user_password, user_phone) VALUES (?, ?, ?)";
-out.println("<script>alert('2');</script>");
+                String insertQuery = "INSERT INTO user (user_email, user_password, user_phone, user_name, user_address) VALUES (?, ?, ?, ?, ?)";
                 pstmt = conn.prepareStatement(insertQuery);
-out.println("<script>alert('3');</script>");
                 pstmt.setString(1, user_email);
                 pstmt.setString(2, user_password);
                 pstmt.setString(3, user_phone);
-out.println("<script>alert('4');</script>");
+                pstmt.setString(4, user_name);
+                pstmt.setString(5, user_address);
+
                 pstmt.executeUpdate();
-out.println("<script>alert('5');</script>");
+out.println("<script>alert('가입완료 로그인ㄱ');</script>");
 
                 // Registration successful, redirect to a success page or login page
                 out.println("<script>window.location.href='/login';</script>");
