@@ -24,6 +24,7 @@ COPY ../user/user_detail.jsp ${JETTY_HOME}/webapps/ROOT/user_detail.jsp
 COPY ../configure/jdbc-config.xml  ${JETTY_HOME}/etc/jdbc-config.xml
 COPY ../configure/index.jsp /opt/jetty/webapps/ROOT/index.jsp
 COPY ../configure/updatecount.jsp /opt/jetty/webapps/ROOT/updatecount.jsp
+COPY ../configure/delete.jsp /opt/jetty/webapps/ROOT/delete.jsp
 
 
 
