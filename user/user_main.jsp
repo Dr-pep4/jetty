@@ -168,7 +168,7 @@
                     String keyword = request.getParameter("keyword");
                     String sql = "SELECT * FROM table1";
                     if (keyword != null && !keyword.trim().isEmpty()) {
-                        sql += " WHERE col1 LIKE '%" + keyword + "%' OR col2 LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%'";
+                        sql += " WHERE col1 LIKE '%" + keyword + "%' OR col2 LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%' OR image_url LIKE '%" + keyword + "%'";
                     }
                     rs = stmt.executeQuery(sql);
             %>
