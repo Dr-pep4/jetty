@@ -119,8 +119,8 @@
     String col3 = request.getParameter("col3");
     String col4 = request.getParameter("col4");
     String col5 = request.getParameter("col5");
-    String gift = request.getParameter("col6");
-    String image_url = "https://recaimagebucket.s3.ap-northeast-1.amazonaws.com/image/"+gift+".jpg"
+    String col6 = request.getParameter("col6");
+    String image_url = "https://recaimagebucket.s3.ap-northeast-1.amazonaws.com/image/"+col6+".jpg";
     %>
 
 
@@ -152,7 +152,7 @@ if (request.getMethod().equals("POST")) {
         pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
-        pstmt.setString(6, col6);
+        pstmt.setString(6, image_url);
      
         pstmt.executeUpdate();
 
