@@ -131,7 +131,7 @@
         </div>
         <div>
              <p>Welcome, <%= logon_name %>!</p>
-             <button onclick=logout();>Logout</button>
+             <button onclick="logout()">Logout</button>
         </div>
     </header>
     
