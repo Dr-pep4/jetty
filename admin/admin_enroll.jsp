@@ -153,7 +153,7 @@ if (request.getMethod().equals("POST")) {
         pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
-        pstmt.setString(6, imageUrl);
+        pstmt.setString(6, image_Url);
         pstmt.executeUpdate();
 
         // 등록 성공 시, 성공 페이지로 리다이렉트하거나 성공 메시지를 표시합니다.
