@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.*, java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
-<%@ page import="com.amazonaws.services.s3.AmazonS3" %>
-<%@ page import="com.amazonaws.services.s3.AmazonS3ClientBuilder" %>
-<%@ page import="com.amazonaws.services.s3.model.ObjectMetadata" %>
-<%@ page import="com.amazonaws.services.s3.model.PutObjectRequest" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -126,26 +122,6 @@
     String col3 = request.getParameter("col3");
     String col4 = request.getParameter("col4");
     String col5 = request.getParameter("col5");
-
-    // 이미지 업로드 처리
-    Part imagePart = request.getPart("image");
-    InputStream imageStream = imagePart.getInputStream();
-
-    // Amazon S3 설정
-    String bucketName = "recaimagebucket";
-    String key = "images/" + UUID.randomUUID().toString();
-
-    // S3에 이미지 업로드
-    AmazonS3 s3Client = AmazonS3ClientBuilder.defaultClient();
-    ObjectMetadata metadata = new ObjectMetadata();
-    metadata.setContentType(imagePart.getContentType());
-    metadata.setContentLength(imagePart.getSize());
-    s3Client.putObject(new PutObjectRequest(bucketName, key, imageStream, metadata));
-
-
-    // 이미지 URL 생성
-    String imageUrl = s3Client.getUrl(bucketName, key).toString();
-
     %>
 
 
