@@ -70,7 +70,7 @@ ResultSet rs2 = null;
 
       String query1 = "SELECT * FROM user WHERE user_email = ? AND user_password = ?";
       pstmt1 = conn.prepareStatement(query1);
-      pstmt1.setString(1, useremail);
+      pstmt1.setString(1, username);
       pstmt1.setString(2, password);
 
       rs1 = pstmt1.executeQuery();
