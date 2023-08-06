@@ -70,7 +70,7 @@ ResultSet rs2 = null;
 
       String query1 = "SELECT * FROM user WHERE user_email = ? AND user_password = ?";
       pstmt1 = conn.prepareStatement(query1);
-      pstmt1.setString(1, username);
+      pstmt1.setString(1, useremail);
       pstmt1.setString(2, password);
 
       rs1 = pstmt1.executeQuery();
@@ -88,6 +88,15 @@ ResultSet rs2 = null;
 
 
       if ( (request.getMethod().equals("POST"))&&rs1.next()) {
+        // 로그인 성공 시 데이터베이스에서 추가 정보 가져오기
+        String logon_id = rs1.getString("ID");
+        String logon_name = rs1.getString("user_name");
+
+        // 세션에 추가 정보 저장
+        session.setAttribute("logon_id", logon_id);
+        session.setAttribute("logon_name", logon_name);
+ 
+        
       out.println("<script>window.location.href=\"/main\";</script>");
         }else if( (request.getMethod().equals("POST"))&&rs2.next()){
       out.println("<script>window.location.href=\"/admin_main\";</script>");
