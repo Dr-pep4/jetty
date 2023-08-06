@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<% String logon_name = session.getAttribute("logon_name"); %>
+  <%@ page import="java.sql.*" %>
+            <%@ page import="javax.naming.*" %>
+            <%@ page import="javax.sql.*" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -130,6 +134,7 @@
             </div>
         </div>
         <div>
+            <% String logon_name = (String) session.getAttribute("logon_name"); %>
              <p>Welcome, <%= logon_name %>!</p>
              <button onclick="logout()">Logout</button>
         </div>
@@ -145,9 +150,7 @@
                String password = "qwer1234";
                String driver = "com.mysql.jdbc.Driver"; %>
 
-            <%@ page import="java.sql.*" %>
-            <%@ page import="javax.naming.*" %>
-            <%@ page import="javax.sql.*" %>
+          
 
             <%!
                 public Connection getConnection() throws Exception {
@@ -160,7 +163,7 @@
                     return conn;
                 }
             %>
-
+            
             <%
                 Connection conn = null;
                 Statement stmt = null;
