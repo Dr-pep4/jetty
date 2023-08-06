@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="javax.servlet.http.*" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -88,6 +89,7 @@ ResultSet rs2 = null;
 
 
       if ( (request.getMethod().equals("POST"))&&rs1.next()) {
+        HttpSession session = request.getSession();
         // 로그인 성공 시 데이터베이스에서 추가 정보 가져오기
         String logon_id = rs1.getString("ID");
         String logon_name = rs1.getString("user_name");
