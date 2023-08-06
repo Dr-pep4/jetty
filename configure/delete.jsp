@@ -29,5 +29,5 @@
     }
     
     // 삭제 후 원하는 페이지로 리다이렉트합니다.
-    response.sendRedirect("/admin_main");
+    out.println("<script>window.location.href='/admin_main';</script>");
 %>
