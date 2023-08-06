@@ -221,8 +221,9 @@
                 // 요청이 성공적으로 처리됨
                 var response = xhr.responseText;
                 if (response === "success") {
-                    // 데이터 삭제 성공 시 페이지 새로고침
-                    location.reload();
+                    // 성공적으로 삭제되었을 경우 해당 아이템을 화면에서 제거
+                    var itemBox = button.closest(".item_box");
+                    itemBox.parentNode.removeChild(itemBox);
                 } else {
                     alert("데이터 삭제 중 오류가 발생했습니다.");
                 }
@@ -234,6 +235,7 @@
     };
     xhr.send("id=" + itemId); // 삭제할 아이템의 ID를 서버에 전달
 }
+
 
 
     </script>
