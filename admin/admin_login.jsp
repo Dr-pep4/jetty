@@ -34,7 +34,7 @@
     <hr>
     <div id="wrap">
   <form method="post" action="/login">
-    <label for="username">아이디:</label>
+    <label for="username">이메일:</label>
     <input type="text" id="username" name="user_email" required><br><br>
     <label for="password">비밀번호:</label>
     <input type="password" id="password" name="user_password" required><br><br>
