@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<% String logon_name = (String) session.getAttribute("logon_name"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,6 +129,10 @@
                 </form>
             </div>
         </div>
+        <div>
+             <p>Welcome, <%= logon_name %>!</p>
+             <button onclick=logout();>Logout</button>
+        </div>
     </header>
     
     <hr>
@@ -215,6 +219,9 @@
         }
         function enroll() {
             location.href = "/enroll";
+        }
+        function logout() {
+            location.href = "/logout";
         }
         function alarm(event, id) {
         event.stopPropagation();
