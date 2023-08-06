@@ -61,7 +61,7 @@
                 제조사
             </li>
             <li>
-                <input name="col2"type="text" required>
+                <input name="col2" type="text" required>
             </li>
         </ul>
         <ul class="enroll_row">
@@ -77,39 +77,36 @@
                 car_size
             </li>
             <li>
-                <select name="col4" id="car_size">
-                    <option value="경차">경차</option>
-                    <option value="중형">중형</option>
-                    <option value="준종형">준종형</option>
-                    <option value="대형">대형</option>
-                    <option value="SUV">SUV</option>
-                    <option value="승합">승합</option>
-                    <option value="트럭">트럭</option>
-                </select>
+                <input name="col4" type="text" required>
             </li>
         </ul>
         <ul class="enroll_row">
                 <li>
-                    사진 업로드
+                    상품 사진
                 </li>
                 <li>
-                    <input type="file" name="image" accept="image/*" required>
+                    <select name="col6">
+                        <option value="1">1등 상품</option>
+                        <option value="2">2등 상품</option>
+                        <option value="3">3등 상품</option>
+                        <option value="4">4등 상품</option>
+                        <option value="5">5등 상품</option>
+                        <option value="6">6등 상품</option>
+                        <option value="7">7등 상품</option>
+                        <option value="8">8등 상품</option>
+                        <option value="9">9등 상품</option>
+                        <option value="10">10등 상품</option>
+                        <option value="11">11등 상품</option>
+                        <option value="12">12등 상품</option>
+                    </select>
                 </li>
             </ul>
         <ul class="enroll_row">
             <li>
-                car_color
+                상품 설명
             </li>
             <li>
-                <select name="col5" id="car_color">
-                    <option value="흰색">흰색</option>
-                    <option value="회색">회색</option>
-                    <option value="은색">은색</option>
-                    <option value="파란색">파란색</option>
-                    <option value="검정색">검정색</option>
-                    <option value="빨간색">빨간색</option>
-                    <option value="분홍색">분홍색</option>
-                </select>
+                <input name="col5" type="text" required>
             </li>
         </ul>
         <input type="submit" value="Submit" />
@@ -122,6 +119,8 @@
     String col3 = request.getParameter("col3");
     String col4 = request.getParameter("col4");
     String col5 = request.getParameter("col5");
+    String gift = request.getParameter("col6");
+    String image_url = "https://recaimagebucket.s3.ap-northeast-1.amazonaws.com/image/"+gift+".jpg"
     %>
 
 
@@ -144,7 +143,7 @@ if (request.getMethod().equals("POST")) {
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-        String insertQuery = "INSERT INTO table1 (col1, col2, col3, col4, col5) VALUES (?, ?, ?, ?, ?)";
+        String insertQuery = "INSERT INTO table1 (col1, col2, col3, col4, col5, image_url) VALUES (?, ?, ?, ?, ?, ?)";
         pstmt = conn.prepareStatement(insertQuery);
 
         // 파라미터에 값 할당
@@ -153,6 +152,7 @@ if (request.getMethod().equals("POST")) {
         pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
+        pstmt.setString(6, col6);
      
         pstmt.executeUpdate();
 
