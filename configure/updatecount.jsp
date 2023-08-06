@@ -3,6 +3,7 @@
 
 <%
     String id = request.getParameter("id");
+    String logonId = request.getParameter("logon_id"); // 클라이언트에서 전송한 logon_id 값
 
     // 데이터베이스 연결 정보
     String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
@@ -16,9 +17,6 @@
     try {
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(url, username, password);
-
-        // 현재 세션에 저장된 logon_id 가져오기
-        String logonId = (String) session.getAttribute("logon_id");
 
         // user 테이블에서 logon_id가 일치하는 데이터 조회
         String userQuery = "SELECT * FROM user WHERE id = ?";
@@ -36,9 +34,10 @@
                 pstmt.setString(1, id);
                 pstmt.setString(2, logonId);
                 pstmt.executeUpdate();
+                out.println("success"); // 성공적으로 업데이트되었다는 응답을 보냄
             } else {
                 // 이미 투표한 경우, 메시지 출력
-                out.println("<script>alert('You already voted');</script>");
+                out.println("already_voted"); // 이미 투표한 경우 응답을 보냄
             }
         }
     } catch (Exception e) {
