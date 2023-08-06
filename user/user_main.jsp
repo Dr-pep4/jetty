@@ -224,24 +224,27 @@
             location.href = "/logout";
         }
         function alarm(event, id) {
-        event.stopPropagation();
-
-        // AJAX 요청을 사용하여 user 테이블의 pick 컬럼 업데이트
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "updatecount", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+    event.stopPropagation();
+    
+    // AJAX 요청을 사용하여 데이터베이스에서 count 값을 업데이트합니다.
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "updatecount", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            var response = xhr.responseText;
+            if (response === "success") {
                 // 업데이트가 성공적으로 완료된 경우, 여기서 응답을 처리할 수 있습니다.
-                if (xhr.responseText === "alreadyVoted") {
-                    alert("You already voted");
-                } else {
-                    location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
-                }
+                location.reload(true); // AJAX 요청이 완료되면 페이지를 새로고침합니다.
+            } else if (response === "already_voted") {
+                alert("You already voted.");
             }
-        };
-        xhr.send("id=" + encodeURIComponent(id)); // 업데이트할 행의 ID를 보냅니다.
-    }
+        }
+    };
+    // 세션에 저장된 logon_id를 가져와서 함께 전송합니다.
+    xhr.send("id=" + encodeURIComponent(id) + "&logon_id=" + encodeURIComponent('<%= session.getAttribute("logon_id") %>'));
+}
+
 
     var buttons = document.querySelectorAll(".pick");
     buttons.forEach(function(button) {
