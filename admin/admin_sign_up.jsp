@@ -57,7 +57,7 @@
     
 
 
-    String user_id = request.getParameter("user_id");
+
     String user_password = request.getParameter("user_password");
     
     String user_name = request.getParameter("user_name");
