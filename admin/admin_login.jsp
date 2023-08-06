@@ -135,7 +135,7 @@ ResultSet rs2 = null;
         window.location.href ="/sign_up";
     }
     function success(){
-        response.sendRedirect("user_main.jsp");
+        window.location.href ="/main";
     }
 </script>
 </html>
