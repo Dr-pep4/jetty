@@ -61,67 +61,47 @@ String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.co
 String dbUsername = "admin";
 String dbPassword = "qwer1234";
 Connection conn = null;
-PreparedStatement pstmt1 = null;
-PreparedStatement pstmt2 = null;
-ResultSet rs1 = null;
-ResultSet rs2 = null;
+PreparedStatement pstmt = null;
+ResultSet rs = null;
+
 
 
     try {
       Class.forName("com.mysql.jdbc.Driver");
       conn = DriverManager.getConnection(url, dbUsername, dbPassword);
 
-      String query1 = "SELECT * FROM user WHERE user_email = ? AND user_password = ?";
-      pstmt1 = conn.prepareStatement(query1);
-      pstmt1.setString(1, username);
-      pstmt1.setString(2, password);
 
-      rs1 = pstmt1.executeQuery();
+      String query = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
+      pstmt = conn.prepareStatement(query);
+      pstmt.setString(1, username);
+      pstmt.setString(2, password);
 
-
-      String query2 = "SELECT * FROM admin WHERE admin_name = ? AND admin_password = ?";
-      pstmt2 = conn.prepareStatement(query2);
-      pstmt2.setString(1, username);
-      pstmt2.setString(2, password);
-
-      rs2 = pstmt2.executeQuery();
+      rs = pstmt.executeQuery();
 
 
 
 
 
       if ( (request.getMethod().equals("POST"))&&rs1.next()) {
-
-        // 로그인 성공 시 데이터베이스에서 추가 정보 가져오기
-        String logon_id = rs1.getString("ID");
-        String logon_name = rs1.getString("user_name");
-
-        // 세션에 추가 정보 저장
-        session.setAttribute("logon_id", logon_id);
-        session.setAttribute("logon_name", logon_name);
  
         
-      out.println("<script>window.location.href=\"/main\";</script>");
-        }else if( (request.getMethod().equals("POST"))&&rs2.next()){
       out.println("<script>window.location.href=\"/admin_main\";</script>");
+    
+      
         }else{
          out.println("<script>alert('로그인에 실패했습니다.');</script>");
+        out.println("<script>window.location.href=\"/main\";</script>");
         }
     } catch (Exception e) {
       e.printStackTrace();
     } finally {
-      if (rs1 != null) {
+      if (rs != null) {
         try { rs1.close(); } catch (SQLException e) { }
       }
-      if (rs2 != null) {
-        try { rs2.close(); } catch (SQLException e) { }
-      }
-      if (pstmt1 != null) {
+      if (pstmt != null) {
         try { pstmt1.close(); } catch (SQLException e) { }
       }
-      if (pstmt2 != null) {
-        try { pstmt2.close(); } catch (SQLException e) { }
-      }
+
       if (conn != null) {
         try { conn.close(); } catch (SQLException e) { }
              }
@@ -135,11 +115,8 @@ ResultSet rs2 = null;
     function login(){
         window.location.href ="/login";
     }
-    function logout(){
-        window.location.href ="/sign_up";
-    }
     function success(){
-        window.location.href ="/main";
+        window.location.href ="/admin_main";
     }
 </script>
 </html>
