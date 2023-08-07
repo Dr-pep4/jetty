@@ -68,11 +68,8 @@
     String last_phone = request.getParameter("last_phone");
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
-     String idParam = request.getParameter("id");
-    int pickValue = -1; // 기본값으로 설정
-    if (idParam != null) {
-        pickValue = Integer.parseInt(idParam);
-    }
+    String ID = request.getParameter("id");
+  
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
@@ -109,7 +106,7 @@ ResultSet rs = null;
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
-                pstmt.setInt(6, pickValue);
+                pstmt.setString(6, ID);
 
                 out.println("<script>alert('1');</script>");
                 int insertResult = pstmt.executeUpdate();
