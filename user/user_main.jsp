@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-  <%@ page import="java.sql.*" %>
-            <%@ page import="javax.naming.*" %>
-            <%@ page import="javax.sql.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.naming.*" %>
+<%@ page import="javax.sql.*" %>
 
 
 <!DOCTYPE html>
@@ -153,9 +153,7 @@
             </div>
         </div>
         <div>
-            <% String logon_name = (String) session.getAttribute("logon_name"); %>
-             <p>Welcome, <%= logon_name %>!</p>
-             <button onclick="logout()">Logout</button>
+             <button onclick="login()">admin</button>
         </div>
     </header>
     
@@ -224,9 +222,11 @@
         function enroll() {
             location.href = "/enroll";
         }
-        function logout() {
-            location.href = "/logout";
+        function login() {
+            location.href = "/login";
         }
+
+
         function alarm(event, id) {
     event.stopPropagation();
     
