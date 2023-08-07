@@ -69,7 +69,7 @@
     String last_phone = request.getParameter("last_phone");
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
-    String gift = request.getParameter("gift")
+    String gift = request.getParameter("gift");
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
