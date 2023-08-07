@@ -113,7 +113,17 @@ ResultSet rs = null;
                 pstmt.setString(6, pick);
 
                 pstmt.executeUpdate();
+
+
+                //count 추가
+
+
+                String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
+                pstmt = conn.prepareStatement(updateCountQuery);
+                pstmt.setString(1, id);
+                pstmt.executeUpdate();
 out.println("<script>alert('가입완료 로그인ㄱ');</script>");
+
 
                 // Registration successful, redirect to a success page or login page
                 out.println("<script>window.location.href='/login';</script>");
