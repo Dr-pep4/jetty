@@ -37,6 +37,7 @@
     <hr>
     <div id="wrap">
   <form method="post" action="/sign_up">
+    <input type="hidden" name="gift" id="gift" value="${param.id}"
     <label for="user_email">email:</label>
     <input type="text" id="first_email" name="first_email" required>@<input type="text" id="last_email" name="last_email" required><br><br>
     <label for="password">password:</label>
@@ -70,6 +71,7 @@
 
     String pick = request.getParameter("id");
     out.println("ID 값: " + pick);
+    String gift = request.getParameter("gift")
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
@@ -106,7 +108,7 @@ ResultSet rs = null;
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
-                pstmt.setString(6, pick);
+                pstmt.setString(6, gift);
 
                 out.println("<script>alert('1');</script>");
                 int insertResult = pstmt.executeUpdate();
@@ -115,7 +117,7 @@ ResultSet rs = null;
                     // 회원가입 성공한 경우에만 count 증가 처리
                     String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
                     PreparedStatement updateCountPstmt = conn.prepareStatement(updateCountQuery);
-                    updateCountPstmt.setString(1, pick);
+                    updateCountPstmt.setString(1, gift);
                     updateCountPstmt.executeUpdate();
 
                     out.println("<script>alert('추첨 완료');</script>");
