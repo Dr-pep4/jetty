@@ -1,10 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-String idParam = request.getParameter("id");
-if (idParam != null) {
-    int pick = Integer.parseInt(idParam);
-}
-%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,8 +68,11 @@ if (idParam != null) {
     String last_phone = request.getParameter("last_phone");
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
-
-    int pickValue = pick;
+     String idParam = request.getParameter("id");
+    int pickValue = -1; // 기본값으로 설정
+    if (idParam != null) {
+        pickValue = Integer.parseInt(idParam);
+    }
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
