@@ -68,7 +68,7 @@
     String last_phone = request.getParameter("last_phone");
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
-    String ID = request.getParameter("id");
+    String id = request.getParameter("id");
     String pick = request.getParameter("id");
     %>
         <%@ page import="java.sql.*" %>
@@ -106,7 +106,7 @@ ResultSet rs = null;
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
-                pstmt.setString(6, ID);
+                pstmt.setString(6, id);
 
                 out.println("<script>alert('1');</script>");
                 int insertResult = pstmt.executeUpdate();
@@ -115,7 +115,7 @@ ResultSet rs = null;
                     // 회원가입 성공한 경우에만 count 증가 처리
                     String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
                     PreparedStatement updateCountPstmt = conn.prepareStatement(updateCountQuery);
-                    updateCountPstmt.setString(1, ID);
+                    updateCountPstmt.setString(1, id);
                     updateCountPstmt.executeUpdate();
 
                     out.println("<script>alert('추첨 완료');</script>");
