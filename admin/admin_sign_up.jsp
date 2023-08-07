@@ -69,8 +69,6 @@
     String last_phone = request.getParameter("last_phone");
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
-    String pick = request.getParameter("id");
-    out.println("ID 값: " + pick);
     String gift = request.getParameter("gift")
     %>
         <%@ page import="java.sql.*" %>
