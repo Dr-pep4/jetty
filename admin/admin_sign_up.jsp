@@ -74,6 +74,11 @@
     String mid_phone = request.getParameter("mid_phone");
     String last_phone = request.getParameter("last_phone");
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
+
+
+
+
+    String ID = request.getParameter("id");
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
@@ -100,7 +105,7 @@ ResultSet rs = null;
 
             if (count > 0) {
                 // ID already exists, display an error message or redirect to a duplicate ID error page
-                out.println("<script>alert('이미가입한 이메일....ㅠㅠ.');</script>");
+                out.println("<script>alert('이미 추첨함ㅋ 욕심이 많으시네요~');</script>");
             } else {
                 // Insert new user record
                 String insertQuery = "INSERT INTO user (user_email, user_password, user_phone, user_name, user_address, pick) VALUES (?, ?, ?, ?, ?, ?)";
@@ -110,23 +115,21 @@ ResultSet rs = null;
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
-                pstmt.setString(6, pick);
+                pstmt.setString(6, ID);
 
-                pstmt.executeUpdate();
+                
+                int insertResult = pstmt.executeUpdate();
 
+                if (insertResult > 0) {
+                    // 회원가입 성공한 경우에만 count 증가 처리
+                    String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
+                    PreparedStatement updateCountPstmt = conn.prepareStatement(updateCountQuery);
+                    updateCountPstmt.setString(1, ID);
+                    updateCountPstmt.executeUpdate();
 
-                //count 추가
-
-
-                String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
-                pstmt = conn.prepareStatement(updateCountQuery);
-                pstmt.setString(1, id);
-                pstmt.executeUpdate();
-out.println("<script>alert('가입완료 로그인ㄱ');</script>");
-
-
-                // Registration successful, redirect to a success page or login page
-                out.println("<script>window.location.href='/login';</script>");
+                    out.println("<script>alert('추첨 완료');</script>");
+                    out.println("<script>window.location.href='/login';</script>");
+                }
             }
 
     } catch (Exception e) {
