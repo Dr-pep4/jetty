@@ -128,7 +128,7 @@ ResultSet rs = null;
                     updateCountPstmt.executeUpdate();
 
                     out.println("<script>alert('추첨 완료');</script>");
-                    out.println("<script>window.location.href='/login';</script>");
+                    out.println("<script>window.location.href='/main';</script>");
                 }
             }
 
