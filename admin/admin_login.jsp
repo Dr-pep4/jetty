@@ -96,10 +96,10 @@ ResultSet rs = null;
       e.printStackTrace();
     } finally {
       if (rs != null) {
-        try { rs1.close(); } catch (SQLException e) { }
+        try { rs.close(); } catch (SQLException e) { }
       }
       if (pstmt != null) {
-        try { pstmt1.close(); } catch (SQLException e) { }
+        try { pstmt.close(); } catch (SQLException e) { }
       }
 
       if (conn != null) {
