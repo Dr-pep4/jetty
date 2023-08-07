@@ -26,7 +26,6 @@ COPY ../admin/admin_sign_up.jsp ${JETTY_HOME}/webapps/ROOT/admin_sign_up.jsp
 #configure file
 COPY ../configure/jdbc-config.xml  ${JETTY_HOME}/etc/jdbc-config.xml
 COPY ../configure/index.jsp /opt/jetty/webapps/ROOT/index.jsp
-COPY ../configure/updatecount.jsp /opt/jetty/webapps/ROOT/updatecount.jsp
 COPY ../configure/delete.jsp /opt/jetty/webapps/ROOT/delete.jsp
 
 
