@@ -149,7 +149,7 @@ if (request.getMethod().equals("POST")) {
         // 파라미터에 값 할당
         pstmt.setString(1, col1);
         pstmt.setString(2, col2);
-        pstmt.setInt(3, col3);
+        pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
         pstmt.setString(6, image_url);
