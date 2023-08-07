@@ -49,7 +49,7 @@
     <h1>차량 등록</h1>
     <hr>
      <div id="enroll_table">
-        <form action="/enroll" method="post" enctype="multipart/form-data">
+        <form action="/enroll" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
         <ul class="enroll_row">
             <li>번호판</li>
             <li>
