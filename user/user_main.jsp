@@ -122,6 +122,25 @@
     </style>
 </head>
 <body>
+    <%-- MariaDB 연결 정보 --%>
+            <% String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
+               String username = "admin";
+               String password = "qwer1234";
+               String driver = "com.mysql.jdbc.Driver"; %>
+
+          
+
+            <%!
+                public Connection getConnection() throws Exception {
+                    String driver = "com.mysql.jdbc.Driver";
+                    String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
+                    String username = "admin";
+                    String password = "qwer1234";
+                    Class.forName(driver);
+                    Connection conn = DriverManager.getConnection(url, username, password);
+                    return conn;
+                }
+            %>
     <header style="display: flex; flex-direction: row; align-items: center;">
         <h1 style="margin-right: 10px;">RECA</h1>
         <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
@@ -144,25 +163,7 @@
     
     <div id="search_result">
         <div>
-            <%-- MariaDB 연결 정보 --%>
-            <% String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
-               String username = "admin";
-               String password = "qwer1234";
-               String driver = "com.mysql.jdbc.Driver"; %>
-
-          
-
-            <%!
-                public Connection getConnection() throws Exception {
-                    String driver = "com.mysql.jdbc.Driver";
-                    String url = "jdbc:mysql://team2-db.coccer63gd4o.ap-northeast-1.rds.amazonaws.com:3306/schema1";
-                    String username = "admin";
-                    String password = "qwer1234";
-                    Class.forName(driver);
-                    Connection conn = DriverManager.getConnection(url, username, password);
-                    return conn;
-                }
-            %>
+            
             
             <%
                 Connection conn = null;
