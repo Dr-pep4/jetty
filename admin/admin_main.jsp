@@ -225,8 +225,8 @@
                     var itemBox = button.closest(".item_box");
                     itemBox.parentNode.removeChild(itemBox);
                 } else {
-                    alert("데이터 했습니다1");
-                    location.href="/main";
+                    alert("삭제 했습니다");
+                    location.href="/admin_main";
                 }
             } else {
                 // 요청에 문제가 발생함
