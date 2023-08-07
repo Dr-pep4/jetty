@@ -157,8 +157,8 @@ if (request.getMethod().equals("POST")) {
         pstmt.executeUpdate();
 
         // 등록 성공 시, 성공 페이지로 리다이렉트하거나 성공 메시지를 표시합니다.
-        out.println("<script>window.location.href='/admin_main';</script>");
-
+        //out.println("<script>window.location.href='/admin_main';</script>");
+        out.println("<script>alert("ㅋㅋㅋ");</script>");
        
     }catch (Exception e) {
         e.printStackTrace();
