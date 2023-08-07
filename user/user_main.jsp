@@ -251,14 +251,15 @@
 
 
     var buttons = document.querySelectorAll(".pick");
-    buttons.forEach(function(button) {
-        button.addEventListener("click", function(event) {
-            event.preventDefault();
-            // Get the ID of the row associated with this button and pass it to the alarm function.
-            var id = this.getAttribute("data-id");
-            alarm(event, id);
-        });
+buttons.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+        // Get the ID of the row associated with this button and pass it to the enroll page.
+        var id = this.getAttribute("data-id");
+        location.href = "/enroll?id=" + encodeURIComponent(id);
     });
+});
+
 
     </script>
 </body>
