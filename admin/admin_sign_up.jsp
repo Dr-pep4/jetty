@@ -108,9 +108,9 @@ ResultSet rs = null;
                 pstmt.setString(5, user_address);
                 pstmt.setString(6, gift);
 
-                out.println("<script>alert('1');</script>");
+                
                 int insertResult = pstmt.executeUpdate();
-                out.println("<script>alert('2');</script>");
+               
                 if (insertResult > 0) {
                     // 회원가입 성공한 경우에만 count 증가 처리
                     String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
