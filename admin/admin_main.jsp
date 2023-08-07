@@ -225,7 +225,8 @@
                     var itemBox = button.closest(".item_box");
                     itemBox.parentNode.removeChild(itemBox);
                 } else {
-                    alert("데이터 삭제 중 오류가 발생했습니다1.");
+                    alert("데이터 했습니다1");
+                    location.href="/main";
                 }
             } else {
                 // 요청에 문제가 발생함
