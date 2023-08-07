@@ -103,14 +103,14 @@ ResultSet rs = null;
                 out.println("<script>alert('이미가입한 이메일....ㅠㅠ.');</script>");
             } else {
                 // Insert new user record
-                String insertQuery = "INSERT INTO user (user_email, user_password, user_phone, user_name, user_address) VALUES (?, ?, ?, ?, ?)";
+                String insertQuery = "INSERT INTO user (user_email, user_password, user_phone, user_name, user_address, pick) VALUES (?, ?, ?, ?, ?, ?)";
                 pstmt = conn.prepareStatement(insertQuery);
                 pstmt.setString(1, user_email);
                 pstmt.setString(2, user_password);
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
-        
+                pstmt.setString(6, pick);
 
                 pstmt.executeUpdate();
 out.println("<script>alert('가입완료 로그인ㄱ');</script>");
