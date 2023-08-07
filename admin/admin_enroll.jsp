@@ -89,14 +89,7 @@
                 </select>
             </li>
         </ul>
-        <ul class="enroll_row">
-                <li>
-                    사진 업로드
-                </li>
-                <li>
-                    <input type="file" name="image" accept="image/*" required>
-                </li>
-            </ul>
+       
         <ul class="enroll_row">
             <li>
                 car_color
