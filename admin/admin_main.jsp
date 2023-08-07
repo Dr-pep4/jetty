@@ -167,7 +167,7 @@
 
             <div id="all_items">
             <% while (rs.next()) { %>
-                <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" style="display:flex;">
+                <a class="item_box" href="/admin_detail?id=<%= rs.getString("ID") %>" style="display:flex;">
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
                         <%= rs.getString("col1") %>
                     </p>
