@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%
+String idParam = request.getParameter("id");
+if (idParam != null) {
+    int pick = Integer.parseInt(idParam);
+}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,10 +59,6 @@
   <button onclick="success()">aaa </button>
     </div>
     <%
-    
-
-
-
     String user_password = request.getParameter("user_password");
     
     String user_name = request.getParameter("user_name");
@@ -67,8 +68,6 @@
     String last_email = request.getParameter("last_email");
     String user_email = first_email+"@"+last_email;
 
-   
-
 
     String first_phone = request.getParameter("first_phone");
     String mid_phone = request.getParameter("mid_phone");
@@ -76,9 +75,7 @@
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
 
-
-
-    String pick = request.getParameter("id");
+    int pickValue = pick;
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
@@ -115,7 +112,7 @@ ResultSet rs = null;
                 pstmt.setString(3, user_phone);
                 pstmt.setString(4, user_name);
                 pstmt.setString(5, user_address);
-                pstmt.setString(6, pick);
+                pstmt.setInt(6, pickValue);
 
                 out.println("<script>alert('1');</script>");
                 int insertResult = pstmt.executeUpdate();
