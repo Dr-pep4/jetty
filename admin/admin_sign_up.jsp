@@ -69,6 +69,7 @@
     String user_phone = first_phone+"-"+mid_phone+"-"+last_phone;
 
     String pick = request.getParameter("id");
+    out.println("ID 값: " + pick);
     %>
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
