@@ -148,20 +148,23 @@ if (request.getMethod().equals("POST")) {
 
         // 파라미터에 값 할당
         pstmt.setString(1, col1);
+out.println("<script>alert('1');</script>");
         pstmt.setString(2, col2);
         pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
         pstmt.setString(6, image_url);
+out.println("<script>alert('6');</script>");
      
         pstmt.executeUpdate();
 
         // 등록 성공 시, 성공 페이지로 리다이렉트하거나 성공 메시지를 표시합니다.
         //out.println("<script>window.location.href='/admin_main';</script>");
-        out.println("<script>alert("ㅋㅋㅋ");</script>");
+        out.println("<script>alert('ㅋㅋㅋ');</script>");
        
     }catch (Exception e) {
         e.printStackTrace();
+out.println("<script>alert('조짐');</script>");
     } finally {
         if (pstmt != null) {
             try { pstmt.close(); } catch (SQLException e) { }
