@@ -115,7 +115,7 @@ ResultSet rs = null;
                     // 회원가입 성공한 경우에만 count 증가 처리
                     String updateCountQuery = "UPDATE table1 SET count = count + 1 WHERE ID = ?";
                     PreparedStatement updateCountPstmt = conn.prepareStatement(updateCountQuery);
-                    updateCountPstmt.setString(1, pick);
+                    updateCountPstmt.setString(1, ID);
                     updateCountPstmt.executeUpdate();
 
                     out.println("<script>alert('추첨 완료');</script>");
