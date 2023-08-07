@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.io.*, java.util.*, javax.servlet.*, javax.servlet.http.*, javax.servlet.jsp.*" %>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -49,7 +50,7 @@
     <h1>차량 등록</h1>
     <hr>
      <div id="enroll_table">
-        <form action="/enroll" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+        <form action="/enroll" method="post" enctype="multipart/form-data">
         <ul class="enroll_row">
             <li>번호판</li>
             <li>
@@ -61,7 +62,7 @@
                 제조사
             </li>
             <li>
-                <input name="col2" type="text" required>
+                <input name="col2"type="text" required>
             </li>
         </ul>
         <ul class="enroll_row">
@@ -77,36 +78,55 @@
                 car_size
             </li>
             <li>
-                <input name="col4" type="text" required>
+                <select name="col4" id="car_size">
+                    <option value="경차">경차</option>
+                    <option value="중형">중형</option>
+                    <option value="준종형">준종형</option>
+                    <option value="대형">대형</option>
+                    <option value="SUV">SUV</option>
+                    <option value="승합">승합</option>
+                    <option value="트럭">트럭</option>
+                </select>
             </li>
         </ul>
         <ul class="enroll_row">
                 <li>
-                    상품 사진
+                    사진 업로드
                 </li>
                 <li>
-                    <select name="col6">
-                        <option value="1">1등 상품</option>
-                        <option value="2">2등 상품</option>
-                        <option value="3">3등 상품</option>
-                        <option value="4">4등 상품</option>
-                        <option value="5">5등 상품</option>
-                        <option value="6">6등 상품</option>
-                        <option value="7">7등 상품</option>
-                        <option value="8">8등 상품</option>
-                        <option value="9">9등 상품</option>
-                        <option value="10">10등 상품</option>
-                        <option value="11">11등 상품</option>
-                        <option value="12">12등 상품</option>
-                    </select>
+                    <input type="file" name="image" accept="image/*" required>
                 </li>
             </ul>
         <ul class="enroll_row">
             <li>
-                상품 설명
+                car_color
             </li>
             <li>
-                <input name="col5" type="text" required>
+                <select name="col5" id="car_color">
+                    <option value="흰색">흰색</option>
+                    <option value="회색">회색</option>
+                    <option value="은색">은색</option>
+                    <option value="파란색">파란색</option>
+                    <option value="검정색">검정색</option>
+                    <option value="빨간색">빨간색</option>
+                    <option value="분홍색">분홍색</option>
+                </select>
+            </li>
+        </ul>
+        <ul class="enroll_row">
+            <li>
+                car_color
+            </li>
+            <li>
+                <select name="col6" id="car">
+                    <option value="1">1번째 상품 사진</option>
+                    <option value="2">2번째 상품 사진</option>
+                    <option value="3">3번째 상품 사진</option>
+                    <option value="4">4번째 상품 사진</option>
+                    <option value="5">5번째 상품 사진</option>
+                    <option value="6">6번째 상품 사진</option>
+                    <option value="7">7번째 상품 사진</option>
+                </select>
             </li>
         </ul>
         <input type="submit" value="Submit" />
@@ -120,8 +140,8 @@
     String col4 = request.getParameter("col4");
     String col5 = request.getParameter("col5");
     String col6 = request.getParameter("col6");
-    String image_url = null;
     String image_url = "https://recaimagebucket.s3.ap-northeast-1.amazonaws.com/image/"+col6+".jpg";
+    
     %>
 
 
@@ -153,17 +173,15 @@ if (request.getMethod().equals("POST")) {
         pstmt.setString(3, col3);
         pstmt.setString(4, col4);
         pstmt.setString(5, col5);
-        pstmt.setString(6, image_url);
-     
+        pstmt.setString(6, imageUrl);
         pstmt.executeUpdate();
 
         // 등록 성공 시, 성공 페이지로 리다이렉트하거나 성공 메시지를 표시합니다.
-        //out.println("<script>window.location.href='/admin_main';</script>");
-        out.println("<script>alert('ㅋㅋㅋ');</script>");
+        out.println("<script>window.location.href='/admin_main';</script>");
+
        
     }catch (Exception e) {
         e.printStackTrace();
-out.println("<script>alert('조짐');</script>");
     } finally {
         if (pstmt != null) {
             try { pstmt.close(); } catch (SQLException e) { }
