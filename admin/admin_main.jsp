@@ -62,7 +62,7 @@
             text-decoration: none;
             box-shadow: 0 3px 3px rgba(0,0,0,0.2);
             width: 98%;
-            height:50px;
+            height:65px;
             margin: 5px auto;
             display: block;
             color: black;
@@ -168,17 +168,11 @@
             <div id="all_items">
             <% while (rs.next()) { %>
                 <a class="item_box" href="/admin_detail?id=<%= rs.getString("ID") %>" style="display:flex;">
-                    <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
-                        <%= rs.getString("item_name") %>
-                    </p>
-                    <div class="car_image">
-                        <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("item_name") %>" style="width: 100%; height: 100%" >
-                    </div>
-                    <ul class="brand_size" style="width:">
-                        <li> 상품 이름<%= rs.getString("item_name") %></li>
-                        <li> 응모자 수<%= rs.getString("count") %></li>
-                    </ul>
-                    <button data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제</button>
+                    <p style="width:5%"><%= rs.getString("ID") %></p>
+                    <p style="width:10%"><%= rs.getString("item_name") %></p>
+                    <p style="width:50%"><%= rs.getString("item_describe") %></p>
+                    <p style="width:10%">응모인원 : <%= rs.getString("count") %></p>
+                    <button style="width:5%" data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제</button>
                 </a>
             <% } %>
             </div>
