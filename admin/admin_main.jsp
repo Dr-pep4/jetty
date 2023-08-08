@@ -60,13 +60,13 @@
         }
         .item_box {
             text-decoration: none;
-            border: 2px solid Red;
+            box-shadow: 0 3px 3px rgba(0,0,0,0.2);
             width: 98%;
             height:50px;
             margin: 5px auto;
             display: block;
             color: black;
-            background-color: gray;
+            
         }
         .car_image {
             float:left;
@@ -178,7 +178,7 @@
                         <li> 상품 이름<%= rs.getString("item_name") %></li>
                         <li> 응모자 수<%= rs.getString("count") %></li>
                     </ul>
-                    <button data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제하기</button>
+                    <button data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제</button>
                 </a>
             <% } %>
             </div>
