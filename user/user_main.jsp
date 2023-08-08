@@ -174,7 +174,7 @@
                     String keyword = request.getParameter("keyword");
                     String sql = "SELECT * FROM table1";
                     if (keyword != null && !keyword.trim().isEmpty()) {
-                        sql += " WHERE col1 LIKE '%" + keyword + "%' OR col2 LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%' OR image_url LIKE '%" + keyword + "%'";
+                        sql += " WHERE item_name LIKE '%" + keyword + "%' OR item_describe LIKE '%" + keyword + "%' OR image_url LIKE '%" + keyword + "%' OR count LIKE '%" + keyword + "%'";
                     }
                     rs = stmt.executeQuery(sql);
             %>
@@ -186,16 +186,16 @@
                 <% while (rs.next()) { %>
                     <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
                         <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
-                            <%= rs.getString("col1") %>등
+                            <%= rs.getString("user_item") %>등
                         </p>
                         <div class="car_image">
-                            <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
+                            <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("item_name") %>" style="width: 100%; height: 100%" >
                         </div>
                         <ul class="brand_size">
                             <li>참가자 : <%= rs.getString("count") %> 명</li>
                             <button class="pick" data-id="<%= rs.getString("ID") %>">추첨하기</button>
                         </ul>
-                        <p style="text-align: center; font-weight: bold;"><%= rs.getString("col4") %></p>
+
                     </a>
                 <% } %>
                 </div>
