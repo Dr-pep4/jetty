@@ -107,7 +107,7 @@
 </head>
 <body>
     <header style="display: flex; flex-direction: row; align-items: center;">
-        <h1 style="margin-right: 10px;">RECA</h1>
+        <h1 style="margin-right: 10px;"><a href="/main">RECA</a></h1>
         <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
             <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
                 <form action="admin_main" style="width: 50%; display: flex; flex-direction: row; align-items: justify-content:space-evenly;">
