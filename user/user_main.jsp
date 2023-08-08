@@ -174,7 +174,7 @@
                     String keyword = request.getParameter("keyword");
                     String sql = "SELECT * FROM table1";
                     if (keyword != null && !keyword.trim().isEmpty()) {
-                        sql += " WHERE item_name LIKE '%" + keyword + "%' OR item_describe LIKE '%" + keyword + "%' OR image_url LIKE '%" + keyword + "%' OR count LIKE '%" + keyword + "%'";
+                        sql += " WHERE item_name LIKE '%" + keyword + "%' OR item_describe LIKE '%" + keyword + "%' OR count LIKE '%" + keyword + "%' OR image_url LIKE '%" + keyword + "%'";
                     }
                     rs = stmt.executeQuery(sql);
             %>
@@ -186,7 +186,7 @@
                 <% while (rs.next()) { %>
                     <a class="item_box" href="/detail?id=<%= rs.getString("ID") %>" >
                         <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
-                            <%= rs.getString("user_item") %>등
+                            <%= rs.getString("item_name") %>
                         </p>
                         <div class="car_image">
                             <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("item_name") %>" style="width: 100%; height: 100%" >
