@@ -156,7 +156,7 @@
                     String keyword = request.getParameter("keyword");
                     String sql = "SELECT * FROM table1";
                     if (keyword != null && !keyword.trim().isEmpty()) {
-                        sql += " WHERE item_name LIKE '%" + keyword + "%' OR item_describe LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%'";
+                        sql += " WHERE item_name LIKE '%" + keyword + "%' OR item_describe LIKE '%" + keyword + "%' OR count LIKE '%" + keyword + "%' OR image_url LIKE '%" + keyword + "%'";
                     }
                     rs = stmt.executeQuery(sql);
             %>
@@ -169,10 +169,10 @@
             <% while (rs.next()) { %>
                 <a class="item_box" href="/admin_detail?id=<%= rs.getString("ID") %>" style="display:flex;">
                     <p style="height: 6%; margin: 10px auto; width: 92%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold;">
-                        <%= rs.getString("col1") %>
+                        <%= rs.getString("item_name") %>
                     </p>
                     <div class="car_image">
-                        <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
+                        <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("item_name") %>" style="width: 100%; height: 100%" >
                     </div>
                     <ul class="brand_size" style="width:">
                         <li> 상품 이름<%= rs.getString("item_name") %></li>
