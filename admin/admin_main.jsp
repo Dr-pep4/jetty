@@ -156,7 +156,7 @@
                     String keyword = request.getParameter("keyword");
                     String sql = "SELECT * FROM table1";
                     if (keyword != null && !keyword.trim().isEmpty()) {
-                        sql += " WHERE col1 LIKE '%" + keyword + "%' OR col2 LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%'";
+                        sql += " WHERE item_name LIKE '%" + keyword + "%' OR item_describe LIKE '%" + keyword + "%' OR col3 LIKE '%" + keyword + "%' OR col4 LIKE '%" + keyword + "%' OR col5 LIKE '%" + keyword + "%'";
                     }
                     rs = stmt.executeQuery(sql);
             %>
@@ -175,10 +175,9 @@
                         <img src="<%= rs.getString("image_url") %>" alt="<%= rs.getString("col1") %>" style="width: 100%; height: 100%" >
                     </div>
                     <ul class="brand_size" style="width:">
-                        <li><%= rs.getString("col2") %></li>
-                        <li><%= rs.getString("col3") %></li>
+                        <li> 상품 이름<%= rs.getString("item_name") %></li>
+                        <li> 응모자 수<%= rs.getString("count") %></li>
                     </ul>
-                    <p style="text-align: center; font-weight: bold; width:20%;"><%= rs.getString("col4") %></p>
                     <button data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제하기</button>
                 </a>
             <% } %>
