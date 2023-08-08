@@ -95,9 +95,7 @@
     <%
     String col1 = request.getParameter("col1");
     String col2  = request.getParameter("col2");
-    String col3 = request.getParameter("col3");
-    String col4 = request.getParameter("col4");
-    String col5 = request.getParameter("col5");
+  
     String col6 = request.getParameter("col6");
     String image_url = "https://recaimagebucket.s3.ap-northeast-1.amazonaws.com/image/"+col6+".jpg";
     
