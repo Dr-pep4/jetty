@@ -72,7 +72,7 @@ String A = null;  // 변수 선언 위치 변경
 String B = null;   // 변수 선언 위치 변경
 String C = null;
 String D = null;
-String E = null;
+
 
 try {
   conn = getConnection();
@@ -82,11 +82,11 @@ try {
 
   // Process the fetched row data
   if (rs.next()) {
-     A = rs.getString("col1");
-     B = rs.getString("col2");  // 변수 값 할당
-     C = rs.getString("col3");    // 변수 값 할당
-     D = rs.getString("col4");
-     E = rs.getString("col5");
+     A = rs.getString("count");
+     B = rs.getString("item_name");  // 변수 값 할당
+     C = rs.getString("item_describe");    // 변수 값 할당
+     D = rs.getString("ID");
+ 
      // Retrieve other column values as needed
 
      // Use the fetched data as required
@@ -117,15 +117,15 @@ try {
 </div>
 <div id="result">
     <div>
-            <img src="#">
+            <img src=" <%= rs.getString("image_url") %>">
     </div>
     <div>
       <h1>Car Details</h1>
-      <p>column1 : <%= A %></p>
-      <p>column2: <%= B %></p>
-      <p>column3: <%= C %></p>
-      <p>column4: <%= D %></p>
-      <p>column5: <%= E %></p>
+      <p>상품 번호 : <%= A %></p>
+      <p>경품명 : <%= B %></p>
+      <p>경품설명 : <%= C %></p>
+      <p>응모자 수 : <%= D %></p>
+      
     </div>
 </div>
 <button onclick="success()">뒤로 </button>
