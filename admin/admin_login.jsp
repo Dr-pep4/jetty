@@ -40,7 +40,7 @@
 </head>
 <body>
     <div id="wrap">
-      <form method="post" action="/login">
+      <form method="post" action="/login" style="margin:0 auto;">
         <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
             <label style="width:30%"for="username">Account</label>
             <input style="width:60%" type="text" id="username" name="user_email" required>
