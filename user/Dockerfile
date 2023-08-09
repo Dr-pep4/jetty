@@ -16,8 +16,8 @@ RUN mkdir -p ${JETTY_HOME} && \
 
 # application contents
 RUN mkdir -p ${JETTY_HOME}/webapps/ROOT
-COPY ../user/user_main.jsp ${JETTY_HOME}/webapps/ROOT/user_main.jsp
-COPY ../user/user_detail.jsp ${JETTY_HOME}/webapps/ROOT/user_detail.jsp
+COPY user_main.jsp ${JETTY_HOME}/webapps/ROOT/user_main.jsp
+COPY user_detail.jsp ${JETTY_HOME}/webapps/ROOT/user_detail.jsp
 
 
 
