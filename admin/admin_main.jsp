@@ -54,18 +54,18 @@
             height: 1000px;
             width: 95%;
             
-            border: 1px solid #1fa7f8;
+            border: 1px solid white;
             
             margin-bottom: 10px;
         }
         .item_box {
             text-decoration: none;
-            box-shadow: 0 3px 3px #ee0000;
+            box-shadow: 0 0 3px 0 white;
             width: 98%;
             height:65px;
             margin: 5px auto;
             display: block;
-            color: black;
+            color: white;
             
         }
         .car_image {
@@ -82,7 +82,7 @@
         }
         #btn_enroll {
             width: 10%;
-            height: 6%;
+            height: 20px;
             color: black;
             border-radius: 10px;
             border: 2px solid #ee0000;
