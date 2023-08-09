@@ -20,7 +20,7 @@
             padding: 0px 10px;
         }
         body {
-            background-image: url(https://plus.unsplash.com/premium_photo-1670426500311-708bbb8a7432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2036&q=80);
+            background-color:black;
             height: 100%;
             text-align:center;
             margin: 0 auto;
