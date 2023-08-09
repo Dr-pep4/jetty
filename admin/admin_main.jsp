@@ -66,7 +66,11 @@
             margin: 5px auto;
             display: block;
             color: white;
+            align-items: center;
             
+        }
+        .item_box>p{
+            align-items: center;
         }
         .car_image {
             float:left;
