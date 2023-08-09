@@ -21,6 +21,7 @@
             align-items: center;
             border-radius: 1px;
             border: 1px solid #EE0000;
+            color: white;
         }
         h1{
             text-align: center;
