@@ -73,7 +73,9 @@
         li input,select{
             width:80%;
         }
-        
+        input{
+            color:black;
+        }
     </style>
 </head>
 <body>
