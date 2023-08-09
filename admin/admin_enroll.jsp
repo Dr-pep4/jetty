@@ -62,6 +62,10 @@
             background-color:white;
             color:black;
         }
+        li input,select{
+            width:80%;
+        }
+        
     </style>
 </head>
 <body>
