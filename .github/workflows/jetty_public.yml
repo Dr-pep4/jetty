@@ -32,7 +32,7 @@ jobs:
           OPENSHIFT_CONFIG: ${{ secrets.OPENSHIFT_CONFIG }}
 
       - name: Log into OpenShift Cluster
-        run: oc login ${{ secrets.OPENSHIFT_API_ENDPOINT }} --username ${{secrets.ROSA_ID}} --password ${{secrets.ROSA_PASSWORD}}
+        run: oc login ${{ secrets.ROSA_URL}} --username ${{secrets.ROSA_ID}} --password ${{secrets.ROSA_PASSWORD}}
 
 
       - name: Restart OpenShift Admin Build
