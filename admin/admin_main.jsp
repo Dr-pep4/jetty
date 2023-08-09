@@ -34,7 +34,7 @@
             height: 20%;
         }
         #search_result {
-            border: 1px solid black;
+            border: 1px solid #1;
             width: 90%;
             height: %;
             margin: 0 auto;
@@ -54,8 +54,8 @@
             height: 1000px;
             width: 95%;
             
-            border: 3px solid black;
-            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid #1fa7f8;
+            
             margin-bottom: 10px;
         }
         .item_box {
@@ -160,7 +160,7 @@
                     rs = stmt.executeQuery(sql);
             %>
             <div id="header_bar">
-                <h1> List </h1>
+                <h1 style="color:white"> List </h1>
                 <button onclick="enroll()"; id="btn_enroll">Add Items</button>
             </div>
 
