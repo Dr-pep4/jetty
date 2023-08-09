@@ -15,9 +15,7 @@ jobs:
     steps:
       - name: Checkout jetty Repository
         uses: actions/checkout@v2
-        with:
-          repository: Dr-pep4/jetty
-          path: jetty  
+       
 
       - name: Set up OpenShift CLI
         uses: redhat-actions/oc-installer@v1
