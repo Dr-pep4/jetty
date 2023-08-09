@@ -17,10 +17,10 @@
             margin: 0 auto;
             width: 85%;
             height: 500px;
-
-            display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 1px;
+            border: 1px solid #EE0000;
         }
         h1{
             text-align: center;
@@ -36,21 +36,24 @@
     <h1>로그인 페이지</h1>
     <hr>
     <div id="wrap">
-  <form method="post" action="/login">
-    <label for="username">이메일:</label>
-    <input type="text" id="username" name="user_email" required><br><br>
-    <label for="password">비밀번호:</label>
-    <input type="password" id="password" name="user_password" required><br><br>
-    <input type="submit" value="로그인">
+      <form method="post" action="/login" style="width:300px;">
+        <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
+            <label style="width:30%"for="username">Account</label>
+            <input style="width:60%" type="text" id="username" name="user_email" required>
+        </p>
+        <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
+            <label style="width:30%" for="password">Password</label>
+            <input style="width:60%" type="password" id="password" name="user_password" required>
+        </p>
+        <p style="display:flex; width:100%; justify-content:space-around" >
+            <input  style="width:100%; height:40px;" type="submit" value="LOGIN">
+        </p>
   </form>
-  <button onclick="success()">aaa </button>
     </div>
       <%
     String username = request.getParameter("user_email");
     String password = request.getParameter("user_password");
     %>
-
-   
 
         <%@ page import="java.sql.*" %>
         <%@ page import="javax.naming.*" %>
