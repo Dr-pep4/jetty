@@ -179,7 +179,7 @@
                     rs = stmt.executeQuery(sql);
             %>
             <div id="header_bar">
-                <h1> 이벤트 경품 리스트</h1>
+                <h1> PRIZE!</h1>
             </div>
 
             <div id="all_items">
@@ -219,9 +219,6 @@
             document.forms[0].action = "main";
             document.forms[0].submit();
         }
-        function enroll() {
-            location.href = "/enroll";
-        }
         function login() {
             location.href = "/login";
         }
@@ -233,7 +230,7 @@ buttons.forEach(function(button) {
         event.preventDefault();
         // Get the ID of the row associated with this button and pass it to the enroll page.
         var id = this.getAttribute("data-id");
-        location.href = "/sign_up?id=" + encodeURIComponent(id);
+        location.href = "/register?id=" + encodeURIComponent(id);
     });
 });
 
