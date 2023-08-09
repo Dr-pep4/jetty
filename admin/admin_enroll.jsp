@@ -38,7 +38,7 @@
         }
          #enroll_table{
             width:400px;
-            height:300px;
+            height:100%;
             margin:100px auto;
             border:1px solid #1fa7f8;
         }
