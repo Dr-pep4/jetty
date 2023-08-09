@@ -12,7 +12,7 @@
             font-family: 'Noto Sans KR', Arial, sans-serif;
         }
         body {
-            background-color:white;
+            background-color:black;
             height: 100%;
             text-align:center;
         }
@@ -60,7 +60,7 @@
         }
         .item_box {
             text-decoration: none;
-            box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 3px #ee0000;
             width: 98%;
             height:65px;
             margin: 5px auto;
@@ -81,12 +81,11 @@
             height: 100px;
         }
         #btn_enroll {
-            width: 100px;
-            height: 50px;
-            background-color: pink;
+            width: 10%;
+            height: 6%;
             color: black;
             border-radius: 10px;
-            border: 2px solid red;
+            border: 2px solid #ee0000;
             position: relative;
             float: right;
             top: -50px;
@@ -95,8 +94,8 @@
         }
         #btn_enroll:hover {
             cursor: pointer;
-            color: white;
-            border: 1px solid white;
+            color: black;
+            background-color: white;
         }
         .brand_size {
             padding: 0;
@@ -107,7 +106,7 @@
 </head>
 <body>
     <header style="display: flex; flex-direction: row; align-items: center;">
-        <h1 style="margin-right: 10px;"><a href="/main">RECA</a></h1>
+        <h1 style="margin-left: 10px;"><a href="/main" style="text-decoration:none; color:white">RECA</a></h1>
         <div id="wrap" style="display: flex; flex-direction: row; align-items: center;">
             <div id="search_section" style=" display: flex; flex-direction: row; align-items: center;">
                 <form action="admin_main" style="width: 50%; display: flex; flex-direction: row; align-items: justify-content:space-evenly;">
@@ -119,7 +118,7 @@
         </div>
     </header>
     
-    <hr>
+    <hr style="background-color:#1fa7f8;">
     
     <div id="search_result">
         <div>
@@ -161,8 +160,8 @@
                     rs = stmt.executeQuery(sql);
             %>
             <div id="header_bar">
-                <h1> 경품 목록 </h1>
-                <button onclick="enroll()"; id="btn_enroll">등록하기</button>
+                <h1> List </h1>
+                <button onclick="enroll()"; id="btn_enroll">Add Items</button>
             </div>
 
             <div id="all_items">
