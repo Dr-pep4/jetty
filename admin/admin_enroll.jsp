@@ -54,8 +54,10 @@
         }
         #add_btn{
             margin:0 auto;
-            width: 80%;
+            width: 90%;
             border:1px solid #1fa7f8;
+            background-color:black;
+            color:white;
         }
          #add_btn:hover{
             cursor: pointer;
