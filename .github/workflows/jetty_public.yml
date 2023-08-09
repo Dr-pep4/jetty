@@ -35,6 +35,6 @@ jobs:
 
 
       - name: Restart OpenShift Admin Build
-        run: oc start-build nginx --from-dir=jetty/dockerfile --dockerfile=jetty/dockerfile/Dockerfile_user
+        run: oc start-build jetty54321 --from-dir=jetty/dockerfile --dockerfile=jetty/dockerfile/Dockerfile_user
 
   # ... 다른 빌드 작업들 ...
