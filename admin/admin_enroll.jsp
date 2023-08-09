@@ -42,12 +42,23 @@
         }
         .enroll_row{
             display: flex;
+            margin-top: 10px;
         }
         .enroll_row li{
             text-align: center;
             list-style: none;
             width:50%;
             height:40px;
+        }
+        #add_btn{
+            margin:0 auto;
+            width: 80%;
+            border:1px solid #1fa7f8;
+        }
+         #add_btn:hover{
+            cursor: pointer;
+            background-color:white;
+            color:black;
         }
     </style>
 </head>
@@ -93,7 +104,7 @@
                 </select>
             </li>
         </ul>
-        <input style="margin:0 auto; width: 80%; background-color:black; border:1px solid #1fa7f8;" type="submit" value="ADD" />
+        <input id="add_btn" style="" type="submit" value="ADD" />
     </form>
     </div>
 
