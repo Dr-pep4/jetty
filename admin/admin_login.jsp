@@ -11,7 +11,13 @@
     <title>final_login</title>
     <style>
         body {
-            background-color: black;}
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; 
+                margin: 0; 
+            }
         #wrap {
             margin: 0 auto;
             width: 300px;
@@ -34,7 +40,7 @@
 </head>
 <body>
     <div id="wrap">
-      <form method="post" action="/login" style="width:300px;">
+      <form method="post" action="/login">
         <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
             <label style="width:30%"for="username">Account</label>
             <input style="width:60%" type="text" id="username" name="user_email" required>
