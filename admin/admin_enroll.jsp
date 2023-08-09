@@ -27,9 +27,11 @@
             justify-content: center;
             align-items: center;
         }
+        header{
+            height:50px;
+        }
         h1{
             text-align: center;
-            height:10%;
         }
         #search_section{
             justify-content: space-around;
@@ -74,7 +76,9 @@
     </style>
 </head>
 <body>
-    <h1>ADD Items</h1>
+    <header>
+        <h1>ADD Items</h1>
+    </header>
     <hr>
      <div id="enroll_table">
         <form action="/enroll" method="post" style="height=100%;">
