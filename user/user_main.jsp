@@ -79,7 +79,7 @@
             display: block;
             color: black;
             border:2.5px solid black;
-            background: linear-gradient(110deg, #fd7253 60%, #fccb19 60%);
+            background-color: rgba(255, 255, 255, 0.8);
             
         }
         .item_box:hover{
