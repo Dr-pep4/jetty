@@ -1,0 +1,40 @@
+name: Restart OpenShift Build
+
+on:
+  push:
+    paths:
+      - 'jetty/user'  # jetty 폴더 내의 파일 변경 감지
+
+jobs:
+  restart_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout jetty Repository
+        uses: actions/checkout@v2
+        with:
+          repository: your-jetty-repository
+          path: jetty  
+
+      - name: Set up OpenShift CLI
+        uses: redhat-actions/oc-installer@v1
+        with:
+          openshift_server_url: ${{ secrets.OPENSHIFT_SERVER_URL }}
+          openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+          
+          
+      - name: Set up OpenShift Configuration
+        run: |
+          mkdir -p $HOME/.kube
+          echo "$OPENSHIFT_CONFIG" > $HOME/.kube/config
+        env:
+          OPENSHIFT_CONFIG: ${{ secrets.OPENSHIFT_CONFIG }}
+
+      - name: Log into OpenShift Cluster
+        run: oc login ${{ secrets.OPENSHIFT_API_ENDPOINT }} --username ${{secrets.ROSA_ID}} --password ${{secrets.ROSA_PASSWORD}}
+
+
+      - name: Restart OpenShift Admin Build
+        run: oc start-build nginx --from-dir=jetty/dockerfile --dockerfile=jetty/dockerfile/Dockerfile_user
+
+  # ... 다른 빌드 작업들 ...
