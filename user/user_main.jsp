@@ -83,8 +83,9 @@
             
         }
         .item_box:hover{
-            border:5px solid #ee0000;
+            border:0px solid black;
             cursor: pointer;
+            background: linear-gradient(110deg, #fd7253 60%, #fccb19 60%);
         }
         .car_image {
             margin: auto;
