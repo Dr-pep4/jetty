@@ -75,7 +75,7 @@
     <h1>ADD Items</h1>
     <hr>
      <div id="enroll_table">
-        <form action="/enroll" method="post">
+        <form action="/enroll" method="post" style="height=100%;">
         <ul class="enroll_row">
             <li>item</li>
             <li>
