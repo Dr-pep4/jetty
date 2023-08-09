@@ -11,8 +11,7 @@
     <title>final enroll</title>
     <style>
         body {
-            background-image: url(https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80);
-        }
+            background-color:black;}
         #wrap {
             margin: 0 auto;
             width: 85%;
@@ -33,6 +32,8 @@
          #enroll_table{
             width:600px;
             height:1000px;
+            margin:0 auto;
+            background-color:#1fa7f8;
         }
         .enroll_row{
             display: flex;
@@ -47,19 +48,19 @@
     </style>
 </head>
 <body>
-    <h1>차량 등록</h1>
+    <h1>ADD Items</h1>
     <hr>
      <div id="enroll_table">
         <form action="/enroll" method="post">
         <ul class="enroll_row">
-            <li>경품 이름</li>
+            <li>item</li>
             <li>
                 <input name="col1" type="text" required>
             </li>
         </ul>
         <ul class="enroll_row">
             <li>
-                경품 설명
+                describe
             </li>
             <li>
                 <input name="col2"type="text" required>
@@ -69,7 +70,7 @@
        
         <ul class="enroll_row">
             <li>
-                상품 사진
+                picture
             </li>
             <li>
                 <select name="col6" id="car">
@@ -88,7 +89,7 @@
                 </select>
             </li>
         </ul>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="ADD" />
     </form>
     </div>
 
