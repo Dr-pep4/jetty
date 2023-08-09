@@ -44,7 +44,7 @@
             <input style="width:60%" type="password" id="password" name="user_password" required>
         </p>
         <p style="display:flex; width:100%; justify-content:space-around" >
-            <input  style="width:100%; height:40px;" type="submit" value="LOGIN">
+            <input  style="width:95%; height:40px;" type="submit" value="LOGIN">
         </p>
   </form>
     </div>
