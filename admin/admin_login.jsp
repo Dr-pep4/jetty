@@ -36,42 +36,46 @@
             width:80%;
             display: flex;
         }
-        #11{
+        #a{
             display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;
         }
-        #22{
+        #b{
             display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;
         }
 
-        #33{
+        #c{
             display:flex; height:30%; width:100%; justify-content:space-around; margin-top:10%;
         }
         p label{
             width:30%;
         }
-        #11 input{
-            width:60%; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;
+        #a>input{
+            width:60%; background-color:black; color:white; border-radius:5px; border:1px solid white;
         }
-        #22 input{
-            width:60%; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;
+        #b>input{
+            width:60%; background-color:black; color:white; border-radius:5px; border:1px solid white;
         }
-        #33 input{
-            width:95%; height:40px; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;
+        #c>input{
+            width:95%; height:40px; background-color:black; color:white; border-radius:5px; border:1px solid white;
+        }
+        #c>input:hover{
+          background-color: #ee0000;
+          color:white;
         }
     </style>
 </head>
 <body>
     <div id="wrap">
         <form method="post" action="/login" style="margin:0 auto;">
-          <p id = "11">
+          <p id = "a">
               <label for="username">Account</label>
               <input type="text" id="username" name="user_email" required>
           </p>
-          <p id = "22">
+          <p id = "b">
               <label for="password">Password</label>
               <input type="password" id="password" name="user_password" required>
           </p>
-          <p id = "33">
+          <p id = "c">
               <input type="submit" value="LOGIN">
           </p>
         </form>
