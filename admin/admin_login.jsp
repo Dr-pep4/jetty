@@ -33,8 +33,6 @@
     </style>
 </head>
 <body>
-    <h1>로그인 페이지</h1>
-    <hr>
     <div id="wrap">
       <form method="post" action="/login" style="width:300px;">
         <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
