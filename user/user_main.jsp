@@ -48,9 +48,8 @@
             
         }
         li {
-            border: 2px solid red;
+            border: 1px solid red;
             list-style: none;
-            border-radius: 5px;
             width: 50%;
             height: 5%;
             margin: 0 auto;
@@ -66,24 +65,25 @@
             width: 95%;
             flex-flow: wrap;
             display:flex;
-            border: 3px solid red;
-            background-color: rgba(255, 255, 255, 0.7);
+            border: 3px solid black;
+            background-color: rgba(255, 255, 255, 0.8);
             margin-bottom: 10px;
 
         }
         .item_box {
             text-decoration: none;
-            border-radius: 10px;
             padding: 10px;
             width: 270px;
             height:370px;
             margin: 5px auto;
             display: block;
             color: black;
+            border:2.5px solid black;
             
         }
         .item_box:hover{
-            box-shadow: 0px 0px 20px red;
+            border:5px solid #ee0000;
+            cursor: pointer;
         }
         .car_image {
             margin: auto;
