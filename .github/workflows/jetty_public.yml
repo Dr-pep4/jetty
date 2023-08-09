@@ -2,8 +2,11 @@ name: Restart OpenShift Build
 
 on:
   push:
-    paths:
-      - 'jetty/user'  # jetty 폴더 내의 파일 변경 감지
+    branches:
+      - main  # 트리거할 브랜치
+
+
+
 
 jobs:
   restart_build:
