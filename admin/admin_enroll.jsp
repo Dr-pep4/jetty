@@ -13,6 +13,8 @@
         *{
             color:white;
             margin:0 auto;
+            align-item:center;
+            text-align:center;
         }
         body {
             background-color:black;}
