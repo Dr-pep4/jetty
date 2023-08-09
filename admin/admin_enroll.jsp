@@ -27,6 +27,7 @@
         }
         h1{
             text-align: center;
+            height:10%;
         }
         #search_section{
             justify-content: space-around;
@@ -34,8 +35,8 @@
             display: flex;
         }
          #enroll_table{
-            width:600px;
-            height:1000px;
+            width:400px;
+            height:600px;
             margin:0 auto;
             border:1px solid #1fa7f8;
         }
@@ -92,7 +93,7 @@
                 </select>
             </li>
         </ul>
-        <input style="width: 80%; background-color:black; border:1px solid #1fa7f8;" type="submit" value="ADD" />
+        <input style="margin:0 auto; width: 80%; background-color:black; border:1px solid #1fa7f8;" type="submit" value="ADD" />
     </form>
     </div>
 
