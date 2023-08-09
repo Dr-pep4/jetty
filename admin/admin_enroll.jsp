@@ -59,15 +59,15 @@
             margin:10px 0 auto;
             width: 90%;
             height:30px;
-            border:1px solid #1fa7f8;
+            border:2px solid #1fa7f8;
             background-color:black;
             color:white;
             border-radius:5px;
         }
          #add_btn:hover{
             cursor: pointer;
-            background-color:white;
-            color:black;
+            background-color:#1fa7f8;
+            color:white;
         }
         li input,select{
             width:80%;
