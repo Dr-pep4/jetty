@@ -42,7 +42,6 @@
             text-align: center;
             list-style: none;
             width:50%;
-            border:1px solid black;
             height:40px;
         }
     </style>
@@ -89,7 +88,7 @@
                 </select>
             </li>
         </ul>
-        <input type="submit" value="ADD" />
+        <input style="width: 80%; background-color:black; border:1px solid #1fa7f8;" type="submit" value="ADD" />
     </form>
     </div>
 
