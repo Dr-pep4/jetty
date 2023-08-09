@@ -10,6 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>final enroll</title>
     <style>
+        *{
+            color:white;
+            margin:0 auto;
+        }
         body {
             background-color:black;}
         #wrap {
@@ -33,7 +37,7 @@
             width:600px;
             height:1000px;
             margin:0 auto;
-            background-color:#1fa7f8;
+            border:1px solid #1fa7f8;
         }
         .enroll_row{
             display: flex;
