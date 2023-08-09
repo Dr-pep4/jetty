@@ -56,9 +56,9 @@
             height:40px;
         }
         #add_btn{
-            margin:10px 0 auto;
+            margin: auto;
             width: 90%;
-            height:30px;
+            height:90%;
             border:2px solid #1fa7f8;
             background-color:black;
             color:white;
@@ -119,7 +119,9 @@
                 </select>
             </li>
         </ul>
-        <input id="add_btn" style="" type="submit" value="ADD" />
+         <ul class="enroll_row">
+            <input id="add_btn" style="" type="submit" value="ADD" />
+        </ul>
     </form>
     </div>
 
