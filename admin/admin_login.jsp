@@ -14,8 +14,8 @@
             background-color: black;}
         #wrap {
             margin: 0 auto;
-            width: 85%;
-            height: 500px;
+            width: 300px;
+            height: 200px;
             justify-content: center;
             align-items: center;
             border-radius: 1px;
