@@ -56,7 +56,7 @@
             height:40px;
         }
         #add_btn{
-            margin:0 auto;
+            margin:10px 0 auto;
             width: 90%;
             height:30px;
             border:1px solid #1fa7f8;
