@@ -40,19 +40,19 @@
 </head>
 <body>
     <div id="wrap">
-      <form method="post" action="/login" style="margin:0 auto;">
-        <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
-            <label style="width:30%"for="username">Account</label>
-            <input style="width:60%" type="text" id="username" name="user_email" required>
-        </p>
-        <p style="display:flex; width:100%; justify-content:space-around; text-align:center">
-            <label style="width:30%" for="password">Password</label>
-            <input style="width:60%" type="password" id="password" name="user_password" required>
-        </p>
-        <p style="display:flex; width:100%; justify-content:space-around" >
-            <input  style="width:95%; height:40px;" type="submit" value="LOGIN">
-        </p>
-  </form>
+        <form method="post" action="/login" style="margin:0 auto;">
+          <p style="display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;">
+              <label style="width:30%"for="username">Account</label>
+              <input style="width:60%" type="text" id="username" name="user_email" required>
+          </p>
+          <p style="display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;">
+              <label style="width:30%" for="password">Password</label>
+              <input style="width:60%" type="password" id="password" name="user_password" required>
+          </p>
+          <p style="display:flex; height:30%; width:100%; justify-content:space-around; margin-top:10%;" >
+              <input  style="width:95%; height:40px;" type="submit" value="LOGIN">
+          </p>
+        </form>
     </div>
       <%
     String username = request.getParameter("user_email");
