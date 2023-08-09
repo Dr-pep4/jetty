@@ -75,7 +75,6 @@ String C = null;
 String D = null;
 String E = null;
 
-
 try {
   conn = getConnection();
   stmt = conn.createStatement();
@@ -88,6 +87,7 @@ try {
      B = rs.getString("item_name");  // 변수 값 할당
      C = rs.getString("item_describe");    // 변수 값 할당
      D = rs.getString("count");
+     E = rs.getString("image_url");
 
      // Retrieve other column values as needed
 
@@ -113,7 +113,7 @@ try {
 
 <div id="result">
     <div>
-            <img src="<%= rs.getString("image_url") %>">
+            <img src="<%= E %>">
     </div>
     <div>
       <h1>Car Details</h1>
