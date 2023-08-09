@@ -17,11 +17,11 @@ RUN mkdir -p ${JETTY_HOME} && \
 #application contents
 
 RUN mkdir -p ${JETTY_HOME}/webapps/ROOT
-COPY ../admin/admin_main.jsp ${JETTY_HOME}/webapps/ROOT/admin_main.jsp
-COPY ../admin/admin_login.jsp ${JETTY_HOME}/webapps/ROOT/admin_login.jsp
-COPY ../admin/admin_detail.jsp ${JETTY_HOME}/webapps/ROOT/admin_detail.jsp
-COPY ../admin/admin_enroll.jsp ${JETTY_HOME}/webapps/ROOT/admin_enroll.jsp
-COPY ../admin/register.jsp ${JETTY_HOME}/webapps/ROOT/register.jsp
+COPY admin_main.jsp ${JETTY_HOME}/webapps/ROOT/admin_main.jsp
+COPY admin_login.jsp ${JETTY_HOME}/webapps/ROOT/admin_login.jsp
+COPY admin_detail.jsp ${JETTY_HOME}/webapps/ROOT/admin_detail.jsp
+COPY admin_enroll.jsp ${JETTY_HOME}/webapps/ROOT/admin_enroll.jsp
+COPY register.jsp ${JETTY_HOME}/webapps/ROOT/register.jsp
 
 #configure file
 COPY ../configure/jdbc-config.xml  ${JETTY_HOME}/etc/jdbc-config.xml
