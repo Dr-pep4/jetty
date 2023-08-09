@@ -40,11 +40,11 @@
             width:400px;
             height:100%;
             margin:100px auto;
-            border:1px solid #1fa7f8;
+            border:1px solid white;
         }
         .enroll_row{
             display: flex;
-            margin-top: 10px;
+            margin: 10px 0;
             height:25%;
         }
         .enroll_row li{
@@ -59,6 +59,7 @@
             border:1px solid #1fa7f8;
             background-color:black;
             color:white;
+            border-radius:5px;
         }
          #add_btn:hover{
             cursor: pointer;
