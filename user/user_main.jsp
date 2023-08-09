@@ -20,7 +20,7 @@
             padding: 0px 10px;
         }
         body {
-            background-color:black;
+            background-image:url(https://images.pexels.com/photos/5767386/pexels-photo-5767386.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
             height: 100%;
             text-align:center;
             margin: 0 auto;
