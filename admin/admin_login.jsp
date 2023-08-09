@@ -36,21 +36,43 @@
             width:80%;
             display: flex;
         }
+        #11{
+            display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;
+        }
+        #22{
+            display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;
+        }
+
+        #33{
+            display:flex; height:30%; width:100%; justify-content:space-around; margin-top:10%;
+        }
+        p label{
+            width:30%;
+        }
+        #11 input{
+            width:60%; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;
+        }
+        #22 input{
+            width:60%; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;
+        }
+        #33 input{
+            width:95%; height:40px; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;
+        }
     </style>
 </head>
 <body>
     <div id="wrap">
         <form method="post" action="/login" style="margin:0 auto;">
-          <p style="display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;">
-              <label style="width:30%"for="username">Account</label>
-              <input style="width:60%; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;" type="text" id="username" name="user_email" required>
+          <p id = "11">
+              <label for="username">Account</label>
+              <input type="text" id="username" name="user_email" required>
           </p>
-          <p style="display:flex; height:27%; width:100%; justify-content:space-around; text-align:center; margin-top:10%;">
-              <label style="width:30%" for="password">Password</label>
-              <input style="width:60%; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;" type="password" id="password" name="user_password" required>
+          <p id = "22">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="user_password" required>
           </p>
-          <p style="display:flex; height:30%; width:100%; justify-content:space-around; margin-top:10%;" >
-              <input  style="width:95%; height:40px; background-color:black; color:white; border-radius:5px; border:1px solid #ee0000;" type="submit" value="LOGIN">
+          <p id = "33">
+              <input type="submit" value="LOGIN">
           </p>
         </form>
     </div>
