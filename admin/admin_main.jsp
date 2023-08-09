@@ -171,7 +171,7 @@
                     <p style="width:10%"><%= rs.getString("item_name") %></p>
                     <p style="width:50%"><%= rs.getString("item_describe") %></p>
                     <p style="width:10%">응모인원 : <%= rs.getString("count") %></p>
-                    <button style="width:5%" data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제</button>
+                    <button style="width:5%; float:right;" data-id="<%= rs.getString("ID") %>" onclick="deleteItem(event, this)">삭제</button>
                 </a>
             <% } %>
             </div>
