@@ -16,7 +16,7 @@ jobs:
       - name: Checkout jetty Repository
         uses: actions/checkout@v2
         with:
-          repository: your-jetty-repository
+          repository: Dr-pep4/jetty
           path: jetty  
 
       - name: Set up OpenShift CLI
