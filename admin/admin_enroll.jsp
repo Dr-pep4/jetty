@@ -38,13 +38,14 @@
         }
          #enroll_table{
             width:400px;
-            height:600px;
+            height:300px;
             margin:100px auto;
             border:1px solid #1fa7f8;
         }
         .enroll_row{
             display: flex;
             margin-top: 10px;
+            height:25%;
         }
         .enroll_row li{
             text-align: center;
