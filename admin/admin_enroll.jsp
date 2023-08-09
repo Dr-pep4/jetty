@@ -48,6 +48,7 @@
             display: flex;
             margin: 10px 0;
             height:25%;
+            justify-content:space-around;
         }
         .enroll_row li{
             text-align: center;
